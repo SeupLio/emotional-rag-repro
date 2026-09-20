@@ -20,6 +20,9 @@ __pycache__/
 _tts_jobs.json
 _tts_run.ps1
 
+# ---- superseded exploration scripts (kept locally, not published) ---------
+scripts/_archive/
+
 # ---- env ------------------------------------------------------------------
 .env
 venv*/

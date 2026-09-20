@@ -1,89 +1,106 @@
 {
   "meta": {
     "limit": 480,
+    "ser": "default:models/ser_ravdess",
     "text_source": "anchor",
-    "seconds": 211.3
+    "seconds": 374.2
   },
   "mm1_acoustic_ravdess": {
     "n": 384,
-    "argmax_acc_8d": 0.17447916666666666,
-    "macro_f1": 0.05325123431351159,
+    "argmax_acc_8d": 0.9296875,
+    "macro_f1": 0.7021960559318228,
     "per_class_f1": {
-      "joy": 0.07228915662650602,
-      "fear": 0.0,
-      "surprise": 0.0,
-      "sadness": 0.0,
-      "disgust": 0.0,
-      "anger": 0.3004694835680751,
+      "joy": 0.8852459016393444,
+      "acceptance": 0.0,
+      "fear": 0.9473684210526315,
+      "surprise": 0.9457364341085271,
+      "sadness": 0.9243697478991597,
+      "disgust": 0.9846153846153847,
+      "anger": 0.9302325581395349,
       "anticipation": 0.0
     },
     "per_class": {
       "joy": {
-        "tp": 3,
-        "fp": 16,
-        "fn": 61,
+        "tp": 54,
+        "fp": 4,
+        "fn": 10,
         "support": 64
       },
-      "fear": {
+      "acceptance": {
         "tp": 0,
-        "fp": 0,
-        "fn": 64,
+        "fp": 5,
+        "fn": 0,
+        "support": 0
+      },
+      "fear": {
+        "tp": 63,
+        "fp": 6,
+        "fn": 1,
         "support": 64
       },
       "surprise": {
-        "tp": 0,
-        "fp": 0,
-        "fn": 64,
+        "tp": 61,
+        "fp": 4,
+        "fn": 3,
         "support": 64
       },
       "sadness": {
-        "tp": 0,
+        "tp": 55,
         "fp": 0,
-        "fn": 64,
+        "fn": 9,
         "support": 64
       },
       "disgust": {
-        "tp": 0,
-        "fp": 0,
-        "fn": 64,
+        "tp": 64,
+        "fp": 2,
+        "fn": 0,
         "support": 64
       },
       "anger": {
-        "tp": 64,
-        "fp": 298,
-        "fn": 0,
+        "tp": 60,
+        "fp": 5,
+        "fn": 4,
         "support": 64
       },
       "anticipation": {
         "tp": 0,
-        "fp": 3,
+        "fp": 1,
         "fn": 0,
         "support": 0
       }
     },
     "confusion": {
       "angry": {
-        "anger": 64
+        "anger": 60,
+        "surprise": 2,
+        "anticipation": 1,
+        "joy": 1
       },
       "fearful": {
-        "anger": 55,
-        "joy": 8,
-        "anticipation": 1
+        "fear": 63,
+        "surprise": 1
       },
       "disgust": {
-        "anger": 62,
-        "anticipation": 2
+        "disgust": 64
       },
       "sad": {
-        "anger": 56,
-        "joy": 8
+        "joy": 1,
+        "sadness": 55,
+        "fear": 4,
+        "disgust": 1,
+        "acceptance": 3
       },
       "surprised": {
-        "anger": 64
+        "surprise": 61,
+        "joy": 2,
+        "disgust": 1
       },
       "happy": {
-        "anger": 61,
-        "joy": 3
+        "anger": 5,
+        "joy": 54,
+        "acceptance": 2,
+        "fear": 2,
+        "surprise": 1
       }
     },
     "emotion_counts": {
@@ -97,16 +114,58 @@
   },
   "mm2_cross_channel": {
     "Hermione-en": {
-      "error": "TTS produced no audio"
+      "lang": "en",
+      "n": 64,
+      "n_audio": 64,
+      "cosine": 0.7945399460382894,
+      "mean_pearson_per_dim": 0.05046821853931346,
+      "audio_vec_std": [
+        1.022,
+        0.772,
+        0.339,
+        0.274,
+        0.147,
+        0.687,
+        1.185,
+        0.519
+      ],
+      "text_vec_std": [
+        2.511,
+        2.228,
+        2.208,
+        2.133,
+        1.962,
+        2.241,
+        1.921,
+        2.31
+      ]
     },
     "Sheldon-en": {
-      "error": "TTS produced no audio"
-    },
-    "raidenShogun-zh": {
-      "error": "TTS produced no audio"
-    },
-    "zhongli-zh": {
-      "error": "TTS produced no audio"
+      "lang": "en",
+      "n": 64,
+      "n_audio": 64,
+      "cosine": 0.8131757163318847,
+      "mean_pearson_per_dim": -0.01745482709129704,
+      "audio_vec_std": [
+        1.063,
+        0.81,
+        0.356,
+        0.286,
+        0.122,
+        0.698,
+        1.287,
+        0.528
+      ],
+      "text_vec_std": [
+        2.226,
+        2.67,
+        2.128,
+        2.116,
+        2.333,
+        2.599,
+        1.22,
+        1.977
+      ]
     }
   }
 }

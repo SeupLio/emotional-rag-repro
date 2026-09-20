@@ -201,16 +201,29 @@ def main() -> int:
     ap.add_argument("--skip-mm1", action="store_true")
     ap.add_argument("--skip-mm2", action="store_true")
     ap.add_argument("--text-source", default="anchor", choices=["anchor", "cls"])
+    ap.add_argument("--ser", default=None,
+                    help="SER checkpoint dir (default: models/ser_ravdess, the "
+                         "RAVDESS-trained 8-class model). Pass "
+                         "models/hubert-base-superb-er to reproduce the v1 "
+                         "IEMOCAP checkpoint failure reported in section 5.2.")
+    ap.add_argument("--device", default="cpu", choices=["cpu", "cuda"],
+                    help="device for the SER forward pass")
     args = ap.parse_args()
 
-    res: dict = {"meta": {"limit": args.limit}}
+    ser_kw = {"device": args.device}
+    if args.ser:
+        ser_kw["model_dir"] = args.ser
+
+    res: dict = {"meta": {"limit": args.limit,
+                          "ser": args.ser or "default:models/ser_ravdess"}}
     t0 = time.time()
 
     if not args.skip_mm1:
         items = extract_ravdess(args.limit)
         log(f"[MM-1] RAVDESS speech clips: {len(items)} "
             f"({Counter(i['emotion'] for i in items)})")
-        ac = AcousticEmotionEstimator(device="cpu")
+        ac = AcousticEmotionEstimator(**ser_kw)
+        log(f"       SER checkpoint: {ac.model_dir}")
         log(f"       SER labels: {ac.labels}")
         res["mm1_acoustic_ravdess"] = mm1(ac, items)
         log(f"       argmax_acc_8d={res['mm1_acoustic_ravdess'].get('argmax_acc_8d')} "
@@ -218,7 +231,7 @@ def main() -> int:
 
     if not args.skip_mm2:
         log("[MM-2] cross-channel agreement")
-        ac2 = AcousticEmotionEstimator(device="cpu")
+        ac2 = AcousticEmotionEstimator(**ser_kw)
         res["mm2_cross_channel"] = mm2(
             ac2, [c for c in args.mm2_chars.split(",") if c], args.mm2_mem,
             text_source=args.text_source)

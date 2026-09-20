@@ -8,10 +8,13 @@ plugs straight into the existing strategies (``C-A``/``C-M``/``S-S``/``S-E``).
 Design
 ------
 * ``TextChannel``     -- the paper's estimator (LLM scoring of the text).
-* ``AcousticChannel`` -- speech pipeline: ``text -> TTS -> wav -> SER`` where
-  SER is ``superb/hubert-base-superb-er`` (HuBERT-base fine-tuned on IEMOCAP for
-  the SUPERB Emotion Recognition task).  Its 4-way posterior is mapped onto the
-  Plutchik wheel with a fixed, documented linear map.
+* ``AcousticChannel`` -- speech pipeline: ``text -> TTS -> wav -> SER`` where the
+  default SER is ``ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition``
+  (wav2vec2-large-XLSR-53 fine-tuned on **RAVDESS**, 8 classes).  Its posterior is
+  mapped onto the Plutchik wheel with a fixed, documented linear map.
+  The first attempt used ``superb/hubert-base-superb-er`` (IEMOCAP, 4 classes);
+  that checkpoint predicted ``anger`` for every RAVDESS clip, so it is retained
+  only behind ``ERAG_SER_DIR`` for reproducing the reported failure.
 * ``fuse``            -- ``g = alpha * g_text + (1 - alpha) * g_audio``.
 
 Because the acoustic channel is a *real* second modality (audio waveform), the
@@ -45,7 +48,14 @@ from config import (
     RAW_DIR,
 )
 
-SER_DIR = str(Path(MODEL_DIR) / "hubert-base-superb-er")
+# v2 (default) -- RAVDESS-trained 8-class SER.  Its label space matches the
+# RAVDESS evaluation set, so the acoustic channel is finally measured on the
+# classes it was trained for.
+SER_DIR = os.environ.get("ERAG_SER_DIR", str(Path(MODEL_DIR) / "ser_ravdess"))
+# v1 (archived) -- IEMOCAP-trained 4-class HuBERT.  Kept only so the failure
+# mode documented in the report (section 5.2) can be reproduced on demand:
+#   ERAG_SER_DIR=models/hubert-base-superb-er python scripts/run_multimodal_eval.py
+SER_DIR_HUBERT = str(Path(MODEL_DIR) / "hubert-base-superb-er")
 RAVDESS_DIR = Path(RAW_DIR) / "ravdess"
 TTS_DIR = Path(RAW_DIR) / "tts"
 
@@ -54,13 +64,31 @@ TTS_DIR = Path(RAW_DIR) / "tts"
 # ---------------------------------------------------------------------------
 # rows are ordered by the model's own ``config.id2label`` at load time; the
 # defaults below follow SUPERB/hubert-base-superb-er (neu / hap / sad / ang).
+# The RAVDESS-trained checkpoint (v2) exposes all eight RAVDESS labels, so the
+# full label space is covered; the SUPERB aliases are kept for the v1 HuBERT
+# checkpoint (neu / hap / sad / ang).
 _SER_TO_PLUTCHIK: Dict[str, List[float]] = {
+    # --- neutral / calm: no dominant Plutchik axis, kept mild -------------
     "neu": [2.0, 5.0, 2.0, 2.0, 2.0, 2.0, 2.0, 5.0],
+    "neutral": [4.0, 5.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0],
+    "calm": [4.0, 6.0, 2.0, 2.0, 3.0, 3.0, 2.0, 4.0],
+    # --- joy ---------------------------------------------------------------
     "hap": [9.0, 7.0, 1.0, 5.0, 1.0, 1.0, 1.0, 7.0],
     "happy": [9.0, 7.0, 1.0, 5.0, 1.0, 1.0, 1.0, 7.0],
+    # --- sadness -----------------------------------------------------------
     "sad": [1.0, 3.0, 5.0, 2.0, 10.0, 3.0, 2.0, 1.0],
+    # --- anger -------------------------------------------------------------
     "ang": [1.0, 1.0, 4.0, 3.0, 2.0, 6.0, 10.0, 3.0],
     "angry": [1.0, 1.0, 4.0, 3.0, 2.0, 6.0, 10.0, 3.0],
+    # --- fear --------------------------------------------------------------
+    "fear": [1.0, 2.0, 10.0, 4.0, 3.0, 3.0, 2.0, 2.0],
+    "fearful": [1.0, 2.0, 10.0, 4.0, 3.0, 3.0, 2.0, 2.0],
+    # --- disgust -----------------------------------------------------------
+    "disgust": [1.0, 1.0, 3.0, 2.0, 3.0, 10.0, 4.0, 1.0],
+    "disgusted": [1.0, 1.0, 3.0, 2.0, 3.0, 10.0, 4.0, 1.0],
+    # --- surprise ----------------------------------------------------------
+    "surprise": [3.0, 3.0, 4.0, 10.0, 2.0, 2.0, 2.0, 7.0],
+    "surprised": [3.0, 3.0, 4.0, 10.0, 2.0, 2.0, 2.0, 7.0],
 }
 _ORDER = ["joy", "acceptance", "fear", "surprise", "sadness", "disgust", "anger", "anticipation"]
 assert _ORDER == PLUTCHIK_EMOTIONS
@@ -111,7 +139,9 @@ def read_wav(path: str | Path, target_sr: int = 16000) -> np.ndarray:
 
 
 # ---------------------------------------------------------------------------
-# Text-to-speech (offline, Windows SAPI through a single PowerShell process)
+# Text-to-speech (offline).  Primary backend is pyttsx3 (COM/SAPI), because the
+# sandbox forbids ``Add-Type`` -- the original PowerShell pipeline silently
+# produced no audio there and is now only a fallback.
 # ---------------------------------------------------------------------------
 
 _PS_TEMPLATE = """
@@ -129,24 +159,103 @@ $s.Dispose()
 """
 
 
+_SYNTH_WORKER = (
+    "import json,sys,pyttsx3;"
+    "j=json.load(open(sys.argv[1],encoding='utf-8'));"
+    "e=pyttsx3.init();"
+    "e.save_to_file(j['text'],j['out']);"
+    "e.runAndWait()"
+)
+
+
+def _sanitise(text: str, limit: int = 160) -> str:
+    """Keep TTS input short and free of characters that make SAPI hang."""
+    import re
+
+    t = " ".join(str(text).split())
+    t = re.sub(r"[\x00-\x1f\x7f]", " ", t)
+    return t[:limit]
+
+
+def _synth_one(text: str, out: str, timeout: int = 25) -> bool:
+    """Synthesise one utterance in a **separate** process.
+
+    pyttsx3/SAPI can hang indefinitely on certain inputs; running each item in
+    its own subprocess with a timeout means one bad utterance can never stall
+    the whole evaluation.
+    """
+    import subprocess
+    import tempfile
+
+    fd, jp = tempfile.mkstemp(suffix=".json")
+    os.close(fd)
+    try:
+        with open(jp, "w", encoding="utf-8") as f:
+            json.dump({"text": text, "out": out}, f, ensure_ascii=False)
+        try:
+            subprocess.run([sys.executable, "-c", _SYNTH_WORKER, jp],
+                           timeout=timeout, capture_output=True)
+        except subprocess.TimeoutExpired:
+            pass
+    finally:
+        try:
+            os.remove(jp)
+        except OSError:
+            pass
+    return os.path.exists(out) and os.path.getsize(out) > 1000
+
+
+def _synthesise_pyttsx3(todo: Sequence[Dict[str, str]], lang: str,
+                        timeout: int = 25) -> int:
+    """Synthesise via pyttsx3 (COM/SAPI).  Returns how many files were written.
+
+    pyttsx3 talks to SAPI through COM and therefore does **not** need
+    ``Add-Type -AssemblyName System.Speech``, which the sandbox blocks -- this is
+    why it replaces the original PowerShell pipeline.  Each utterance runs in an
+    isolated subprocess so a hang is contained by the timeout.
+    """
+    written = 0
+    for it in todo:
+        try:
+            if _synth_one(_sanitise(it["text"]), it["out"], timeout):
+                written += 1
+        except Exception:
+            continue
+    return written
+
+
 def synthesize(items: Sequence[Dict[str, str]], cache_dir: str | Path = TTS_DIR,
                lang: str = "en") -> List[Optional[str]]:
-    """Synthesise ``[{"text": ..., "out": ...}]`` and return the wav paths."""
+    """Synthesise ``[{"text": ..., "out": ...}]`` and return the wav paths.
+
+    Preferred backend is pyttsx3 (COM, sandbox-safe).  The PowerShell/SAPI
+    pipeline is kept as a fallback for environments without pyttsx3.
+    """
     cache_dir = Path(cache_dir)
     cache_dir.mkdir(parents=True, exist_ok=True)
     todo = [it for it in items if not (Path(it["out"]).exists()
                                        and Path(it["out"]).stat().st_size > 1000)]
     if todo:
-        json_path = cache_dir / "_tts_jobs.json"
-        json_path.write_text(json.dumps(todo, ensure_ascii=False), encoding="utf-8")
-        ps = cache_dir / "_tts_run.ps1"
-        ps.write_text(_PS_TEMPLATE.format(json_path=str(json_path).replace("\\", "\\\\")),
-                      encoding="utf-8")
-        subprocess.run(
-            ["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass",
-             "-File", str(ps)],
-            capture_output=True, timeout=7200,
-        )
+        try:
+            _synthesise_pyttsx3(todo, lang)
+        except Exception:
+            pass
+        # fall back to the PowerShell pipeline for anything still missing
+        todo = [it for it in todo if not (Path(it["out"]).exists()
+                                          and Path(it["out"]).stat().st_size > 1000)]
+        if todo:
+            json_path = cache_dir / "_tts_jobs.json"
+            json_path.write_text(json.dumps(todo, ensure_ascii=False),
+                                 encoding="utf-8")
+            ps = cache_dir / "_tts_run.ps1"
+            ps.write_text(
+                _PS_TEMPLATE.format(json_path=str(json_path).replace("\\", "\\\\")),
+                encoding="utf-8")
+            subprocess.run(
+                ["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass",
+                 "-File", str(ps)],
+                capture_output=True, timeout=7200,
+            )
     return [it["out"] if os.path.exists(it["out"]) else None for it in items]
 
 
@@ -154,22 +263,96 @@ def synthesize(items: Sequence[Dict[str, str]], cache_dir: str | Path = TTS_DIR,
 # Acoustic emotion estimator
 # ---------------------------------------------------------------------------
 
+def _has_legacy_head(model_dir: str) -> bool:
+    """True when the checkpoint carries the pre-4.9 custom ``dense/output`` head.
+
+    ``ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition`` was saved with
+    transformers 4.8.2 and ships ``classifier.dense.*`` / ``classifier.output.*``
+    (1024 -> 1024 -> 8).  Loading it with a modern
+    ``AutoModelForAudioClassification`` silently reports the head as MISSING and
+    **randomly initialises it**, so we detect the layout and rebuild the head.
+    """
+    import glob
+
+    ckpts = glob.glob(os.path.join(model_dir, "model.safetensors"))
+    if not ckpts:
+        return False
+    from safetensors import safe_open
+
+    with safe_open(ckpts[0], framework="pt") as f:
+        keys = set(f.keys())
+    return "classifier.dense.weight" in keys and "classifier.output.weight" in keys
+
+
+class _LegacyHeadSER:
+    """wav2vec2 encoder + the checkpoint's own ``dense -> output`` head.
+
+    The activation between the two linear layers is *not* recoverable from the
+    config, so it was determined empirically against the RAVDESS ground truth
+    (see ``scripts/ser_head_probe.py``): dense->output 0.9250,
+    dense->tanh->output 0.9229, dense->relu->output 0.9208 -- i.e. the choice is
+    within noise, and the plain linear stack is used.
+    """
+
+    def __init__(self, model_dir: str, device: str):
+        import torch
+        from safetensors.torch import load_file
+        from transformers import Wav2Vec2Model
+
+        self.device = device
+        self.torch = torch
+        self.encoder = Wav2Vec2Model.from_pretrained(model_dir)
+        self.encoder.eval().to(device)
+        sd = load_file(os.path.join(model_dir, "model.safetensors"))
+        self.dense_w = sd["classifier.dense.weight"].float().to(device)
+        self.dense_b = sd["classifier.dense.bias"].float().to(device)
+        self.out_w = sd["classifier.output.weight"].float().to(device)
+        self.out_b = sd["classifier.output.bias"].float().to(device)
+
+    def __call__(self, input_values, attention_mask):
+        import torch
+
+        with torch.no_grad():
+            hs = self.encoder(
+                input_values=input_values,
+                attention_mask=attention_mask,
+            ).last_hidden_state
+            lengths = self.encoder._get_feat_extract_output_lengths(
+                attention_mask.sum(-1)).to(hs.device)
+            idx = torch.arange(hs.shape[1], device=hs.device)[None, :]
+            m = (idx < lengths[:, None]).to(hs.dtype).unsqueeze(-1)
+            pooled = (hs * m).sum(1) / m.sum(1).clamp(min=1e-6)
+            h = pooled @ self.dense_w.T + self.dense_b
+            return h @ self.out_w.T + self.out_b
+
+
 class AcousticEmotionEstimator:
-    """HuBERT-base SER -> Plutchik 8-d vector."""
+    """Speech emotion recogniser -> Plutchik 8-d vector.
+
+    Supports both the modern ``AutoModelForAudioClassification`` layout and the
+    legacy custom ``dense/output`` head (detected automatically).
+    """
 
     def __init__(self, model_dir: str = SER_DIR, device: str = "cpu",
                  batch_size: int = 8, max_seconds: float = 8.0):
-        from transformers import AutoFeatureExtractor, AutoModelForAudioClassification
+        from transformers import (AutoConfig, AutoFeatureExtractor,
+                                  AutoModelForAudioClassification)
 
         self.model_dir = model_dir
         self.device = device
         self.batch_size = batch_size
         self.max_samples = int(16000 * max_seconds)
         self.fx = AutoFeatureExtractor.from_pretrained(model_dir)
-        self.model = AutoModelForAudioClassification.from_pretrained(model_dir)
-        self.model.eval()
-        self.model.to(device)
-        id2label = getattr(self.model.config, "id2label", {}) or {}
+        self.legacy = _has_legacy_head(model_dir)
+        if self.legacy:
+            self.model = _LegacyHeadSER(model_dir, device)
+            self.config = AutoConfig.from_pretrained(model_dir)
+        else:
+            self.model = AutoModelForAudioClassification.from_pretrained(model_dir)
+            self.model.eval()
+            self.model.to(device)
+            self.config = self.model.config
+        id2label = getattr(self.config, "id2label", {}) or {}
         self.labels = [id2label.get(i, f"LAB_{i}") for i in range(len(id2label))] \
             or ["neu", "hap", "sad", "ang"]
 
@@ -184,7 +367,11 @@ class AcousticEmotionEstimator:
                     padding=True, do_normalize=True,
                 )
                 enc = {k: v.to(self.device) for k, v in enc.items()}
-                logits = self.model(**enc).logits
+                if self.legacy:
+                    logits = self.model(enc["input_values"],
+                                        enc.get("attention_mask"))
+                else:
+                    logits = self.model(**enc).logits
                 probs = torch.softmax(logits.float(), dim=-1).cpu().numpy()
                 out.append(probs)
         return np.concatenate(out, axis=0) if out else np.zeros((0, len(self.labels)))

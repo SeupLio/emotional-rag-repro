@@ -1,0 +1,25 @@
+{
+  "best": "dense_out",
+  "results": {
+    "dense_tanh_out": {
+      "acc_8class": 0.9229166666666667
+    },
+    "dense_out": {
+      "acc_8class": 0.925
+    },
+    "dense_relu_out": {
+      "acc_8class": 0.9208333333333333
+    }
+  },
+  "n": 480,
+  "labels": [
+    "angry",
+    "calm",
+    "disgust",
+    "fearful",
+    "happy",
+    "neutral",
+    "sad",
+    "surprised"
+  ]
+}
