@@ -1,0 +1,112 @@
+{
+  "meta": {
+    "limit": 480,
+    "text_source": "anchor",
+    "seconds": 211.3
+  },
+  "mm1_acoustic_ravdess": {
+    "n": 384,
+    "argmax_acc_8d": 0.17447916666666666,
+    "macro_f1": 0.05325123431351159,
+    "per_class_f1": {
+      "joy": 0.07228915662650602,
+      "fear": 0.0,
+      "surprise": 0.0,
+      "sadness": 0.0,
+      "disgust": 0.0,
+      "anger": 0.3004694835680751,
+      "anticipation": 0.0
+    },
+    "per_class": {
+      "joy": {
+        "tp": 3,
+        "fp": 16,
+        "fn": 61,
+        "support": 64
+      },
+      "fear": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 64,
+        "support": 64
+      },
+      "surprise": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 64,
+        "support": 64
+      },
+      "sadness": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 64,
+        "support": 64
+      },
+      "disgust": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 64,
+        "support": 64
+      },
+      "anger": {
+        "tp": 64,
+        "fp": 298,
+        "fn": 0,
+        "support": 64
+      },
+      "anticipation": {
+        "tp": 0,
+        "fp": 3,
+        "fn": 0,
+        "support": 0
+      }
+    },
+    "confusion": {
+      "angry": {
+        "anger": 64
+      },
+      "fearful": {
+        "anger": 55,
+        "joy": 8,
+        "anticipation": 1
+      },
+      "disgust": {
+        "anger": 62,
+        "anticipation": 2
+      },
+      "sad": {
+        "anger": 56,
+        "joy": 8
+      },
+      "surprised": {
+        "anger": 64
+      },
+      "happy": {
+        "anger": 61,
+        "joy": 3
+      }
+    },
+    "emotion_counts": {
+      "angry": 64,
+      "fearful": 64,
+      "disgust": 64,
+      "sad": 64,
+      "surprised": 64,
+      "happy": 64
+    }
+  },
+  "mm2_cross_channel": {
+    "Hermione-en": {
+      "error": "TTS produced no audio"
+    },
+    "Sheldon-en": {
+      "error": "TTS produced no audio"
+    },
+    "raidenShogun-zh": {
+      "error": "TTS produced no audio"
+    },
+    "zhongli-zh": {
+      "error": "TTS produced no audio"
+    }
+  }
+}

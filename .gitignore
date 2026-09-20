@@ -1,0 +1,31 @@
+# ---- large / downloaded artefacts -----------------------------------------
+models/
+raw/
+data/
+results/
+logs/
+*.bin
+*.safetensors
+*.bin.part
+*.safetensors.part
+*.parquet
+*.wav
+*.zip
+
+# ---- caches ---------------------------------------------------------------
+__pycache__/
+*.py[cod]
+.cache/
+.pytest_cache/
+_tts_jobs.json
+_tts_run.ps1
+
+# ---- env ------------------------------------------------------------------
+.env
+venv*/
+.venv/
+
+# ---- editors --------------------------------------------------------------
+.vscode/
+.idea/
+.DS_Store

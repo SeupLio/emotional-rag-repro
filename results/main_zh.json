@@ -1,0 +1,3628 @@
+{
+  "meta": {
+    "channel": "text",
+    "alpha": 0.5,
+    "top_k": 10,
+    "mem_per_char": 128,
+    "strategies": [
+      "ordinary",
+      "C-A",
+      "C-M",
+      "S-S",
+      "S-E"
+    ],
+    "chars": [
+      "raidenShogun-zh",
+      "zhongli-zh",
+      "hutao-zh",
+      "haruhi-zh",
+      "ayaka-zh",
+      "wanderer-zh"
+    ],
+    "seed": 20241030,
+    "backbone": "Qwen2.5-1.5B-Instruct",
+    "emo_source": "anchor"
+  },
+  "per_char": {
+    "raidenShogun-zh": {
+      "lang": "zh",
+      "n_mem": 128,
+      "strategies": {
+        "ordinary": {
+          "BFI": {
+            "scores": {
+              "Extraversion": 2.7698971298523247,
+              "Agreeableness": 3.2707443601555295,
+              "Conscientiousness": 2.9021780689557395,
+              "Neuroticism": 2.716061742976308,
+              "Openness": 2.7491486974060537
+            },
+            "norms": {
+              "Extraversion": 0.4424742824630812,
+              "Agreeableness": 0.5676860900388824,
+              "Conscientiousness": 0.47554451723893487,
+              "Neuroticism": 0.42901543574407697,
+              "Openness": 0.43728717435151343
+            },
+            "bands": {
+              "Extraversion": "L",
+              "Agreeableness": "H",
+              "Conscientiousness": "L",
+              "Neuroticism": "L",
+              "Openness": "L"
+            },
+            "scores_argmax": {
+              "Extraversion": 2.5,
+              "Agreeableness": 3.888888888888889,
+              "Conscientiousness": 2.5555555555555554,
+              "Neuroticism": 2.25,
+              "Openness": 3.0
+            },
+            "norms_argmax": {
+              "Extraversion": 0.375,
+              "Agreeableness": 0.7222222222222222,
+              "Conscientiousness": 0.38888888888888884,
+              "Neuroticism": 0.3125,
+              "Openness": 0.5
+            },
+            "bands_argmax": {
+              "Extraversion": "L",
+              "Agreeableness": "H",
+              "Conscientiousness": "L",
+              "Neuroticism": "L",
+              "Openness": "L"
+            }
+          },
+          "16Personalities": {
+            "scores": {
+              "E/I": 44.64407939499674,
+              "S/N": 46.00989540954794,
+              "T/F": 58.96031920293657,
+              "P/J": 53.190322717030845
+            },
+            "norms": {
+              "E/I": 0.4464407939499674,
+              "S/N": 0.46009895409547935,
+              "T/F": 0.5896031920293656,
+              "P/J": 0.5319032271703085
+            },
+            "bands": {
+              "E/I": "L",
+              "S/N": "L",
+              "T/F": "H",
+              "P/J": "H"
+            },
+            "scores_argmax": {
+              "E/I": 46.15384615384615,
+              "S/N": 47.22222222222222,
+              "T/F": 65.0,
+              "P/J": 53.33333333333333
+            },
+            "norms_argmax": {
+              "E/I": 0.4615384615384615,
+              "S/N": 0.4722222222222222,
+              "T/F": 0.65,
+              "P/J": 0.5333333333333333
+            },
+            "bands_argmax": {
+              "E/I": "L",
+              "S/N": "L",
+              "T/F": "H",
+              "P/J": "H"
+            }
+          }
+        },
+        "C-A": {
+          "BFI": {
+            "scores": {
+              "Extraversion": 2.787854851107113,
+              "Agreeableness": 3.3896520069489875,
+              "Conscientiousness": 3.0398449641135006,
+              "Neuroticism": 2.797423666343093,
+              "Openness": 2.813975640339777
+            },
+            "norms": {
+              "Extraversion": 0.44696371277677827,
+              "Agreeableness": 0.5974130017372469,
+              "Conscientiousness": 0.5099612410283751,
+              "Neuroticism": 0.44935591658577323,
+              "Openness": 0.4534939100849442
+            },
+            "bands": {
+              "Extraversion": "L",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "L"
+            },
+            "scores_argmax": {
+              "Extraversion": 2.0,
+              "Agreeableness": 4.0,
+              "Conscientiousness": 2.7777777777777777,
+              "Neuroticism": 2.5,
+              "Openness": 3.0
+            },
+            "norms_argmax": {
+              "Extraversion": 0.25,
+              "Agreeableness": 0.75,
+              "Conscientiousness": 0.4444444444444444,
+              "Neuroticism": 0.375,
+              "Openness": 0.5
+            },
+            "bands_argmax": {
+              "Extraversion": "L",
+              "Agreeableness": "H",
+              "Conscientiousness": "L",
+              "Neuroticism": "L",
+              "Openness": "L"
+            }
+          },
+          "16Personalities": {
+            "scores": {
+              "E/I": 46.0370923541725,
+              "S/N": 51.13096241580529,
+              "T/F": 58.48201611894183,
+              "P/J": 48.83223282626001
+            },
+            "norms": {
+              "E/I": 0.460370923541725,
+              "S/N": 0.5113096241580529,
+              "T/F": 0.5848201611894183,
+              "P/J": 0.48832232826260014
+            },
+            "bands": {
+              "E/I": "L",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "L"
+            },
+            "scores_argmax": {
+              "E/I": 51.28205128205128,
+              "S/N": 52.77777777777778,
+              "T/F": 65.0,
+              "P/J": 43.333333333333336
+            },
+            "norms_argmax": {
+              "E/I": 0.5128205128205128,
+              "S/N": 0.5277777777777778,
+              "T/F": 0.65,
+              "P/J": 0.43333333333333335
+            },
+            "bands_argmax": {
+              "E/I": "H",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "L"
+            }
+          }
+        },
+        "C-M": {
+          "BFI": {
+            "scores": {
+              "Extraversion": 3.016635522712022,
+              "Agreeableness": 3.5059613798641496,
+              "Conscientiousness": 3.285858386920558,
+              "Neuroticism": 2.876880603376776,
+              "Openness": 3.0394912528805436
+            },
+            "norms": {
+              "Extraversion": 0.5041588806780055,
+              "Agreeableness": 0.6264903449660374,
+              "Conscientiousness": 0.5714645967301395,
+              "Neuroticism": 0.469220150844194,
+              "Openness": 0.5098728132201359
+            },
+            "bands": {
+              "Extraversion": "H",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "H"
+            },
+            "scores_argmax": {
+              "Extraversion": 2.75,
+              "Agreeableness": 4.444444444444445,
+              "Conscientiousness": 3.0,
+              "Neuroticism": 3.25,
+              "Openness": 3.6
+            },
+            "norms_argmax": {
+              "Extraversion": 0.4375,
+              "Agreeableness": 0.8611111111111112,
+              "Conscientiousness": 0.5,
+              "Neuroticism": 0.5625,
+              "Openness": 0.65
+            },
+            "bands_argmax": {
+              "Extraversion": "L",
+              "Agreeableness": "H",
+              "Conscientiousness": "L",
+              "Neuroticism": "H",
+              "Openness": "H"
+            }
+          },
+          "16Personalities": {
+            "scores": {
+              "E/I": 44.61196271750408,
+              "S/N": 39.40748112638377,
+              "T/F": 56.78609792337132,
+              "P/J": 49.83075176158713
+            },
+            "norms": {
+              "E/I": 0.4461196271750408,
+              "S/N": 0.3940748112638377,
+              "T/F": 0.5678609792337133,
+              "P/J": 0.49830751761587133
+            },
+            "bands": {
+              "E/I": "L",
+              "S/N": "L",
+              "T/F": "H",
+              "P/J": "L"
+            },
+            "scores_argmax": {
+              "E/I": 46.15384615384615,
+              "S/N": 52.77777777777778,
+              "T/F": 61.666666666666664,
+              "P/J": 46.66666666666666
+            },
+            "norms_argmax": {
+              "E/I": 0.4615384615384615,
+              "S/N": 0.5277777777777778,
+              "T/F": 0.6166666666666667,
+              "P/J": 0.46666666666666656
+            },
+            "bands_argmax": {
+              "E/I": "L",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "L"
+            }
+          }
+        },
+        "S-S": {
+          "BFI": {
+            "scores": {
+              "Extraversion": 2.7999369096942246,
+              "Agreeableness": 3.3534169954558215,
+              "Conscientiousness": 3.2247120170957513,
+              "Neuroticism": 2.8231866273563355,
+              "Openness": 2.919335261825472
+            },
+            "norms": {
+              "Extraversion": 0.44998422742355615,
+              "Agreeableness": 0.5883542488639554,
+              "Conscientiousness": 0.5561780042739378,
+              "Neuroticism": 0.4557966568390839,
+              "Openness": 0.47983381545636805
+            },
+            "bands": {
+              "Extraversion": "L",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "L"
+            },
+            "scores_argmax": {
+              "Extraversion": 3.0,
+              "Agreeableness": 3.6666666666666665,
+              "Conscientiousness": 4.333333333333333,
+              "Neuroticism": 2.25,
+              "Openness": 2.6
+            },
+            "norms_argmax": {
+              "Extraversion": 0.5,
+              "Agreeableness": 0.6666666666666666,
+              "Conscientiousness": 0.8333333333333333,
+              "Neuroticism": 0.3125,
+              "Openness": 0.4
+            },
+            "bands_argmax": {
+              "Extraversion": "L",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "L"
+            }
+          },
+          "16Personalities": {
+            "scores": {
+              "E/I": 46.56000881252859,
+              "S/N": 51.631425467914795,
+              "T/F": 60.505721797623366,
+              "P/J": 50.713080489076674
+            },
+            "norms": {
+              "E/I": 0.46560008812528586,
+              "S/N": 0.5163142546791479,
+              "T/F": 0.6050572179762337,
+              "P/J": 0.5071308048907668
+            },
+            "bands": {
+              "E/I": "L",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "H"
+            },
+            "scores_argmax": {
+              "E/I": 46.15384615384615,
+              "S/N": 52.77777777777778,
+              "T/F": 64.99999999999999,
+              "P/J": 48.888888888888886
+            },
+            "norms_argmax": {
+              "E/I": 0.4615384615384615,
+              "S/N": 0.5277777777777778,
+              "T/F": 0.6499999999999999,
+              "P/J": 0.4888888888888889
+            },
+            "bands_argmax": {
+              "E/I": "L",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "L"
+            }
+          }
+        },
+        "S-E": {
+          "BFI": {
+            "scores": {
+              "Extraversion": 2.810260435100645,
+              "Agreeableness": 2.982544760323233,
+              "Conscientiousness": 3.134927000022597,
+              "Neuroticism": 2.745363856200129,
+              "Openness": 2.9038080709055065
+            },
+            "norms": {
+              "Extraversion": 0.4525651087751612,
+              "Agreeableness": 0.4956361900808083,
+              "Conscientiousness": 0.5337317500056492,
+              "Neuroticism": 0.4363409640500322,
+              "Openness": 0.47595201772637663
+            },
+            "bands": {
+              "Extraversion": "L",
+              "Agreeableness": "L",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "L"
+            },
+            "scores_argmax": {
+              "Extraversion": 2.0,
+              "Agreeableness": 2.5555555555555554,
+              "Conscientiousness": 3.111111111111111,
+              "Neuroticism": 2.75,
+              "Openness": 2.8
+            },
+            "norms_argmax": {
+              "Extraversion": 0.25,
+              "Agreeableness": 0.38888888888888884,
+              "Conscientiousness": 0.5277777777777778,
+              "Neuroticism": 0.4375,
+              "Openness": 0.44999999999999996
+            },
+            "bands_argmax": {
+              "Extraversion": "L",
+              "Agreeableness": "L",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "L"
+            }
+          },
+          "16Personalities": {
+            "scores": {
+              "E/I": 42.95941755587523,
+              "S/N": 44.68927137851198,
+              "T/F": 56.67349746683611,
+              "P/J": 52.011749698883946
+            },
+            "norms": {
+              "E/I": 0.4295941755587523,
+              "S/N": 0.4468927137851198,
+              "T/F": 0.5667349746683611,
+              "P/J": 0.5201174969888395
+            },
+            "bands": {
+              "E/I": "L",
+              "S/N": "L",
+              "T/F": "H",
+              "P/J": "H"
+            },
+            "scores_argmax": {
+              "E/I": 35.8974358974359,
+              "S/N": 52.77777777777777,
+              "T/F": 58.33333333333333,
+              "P/J": 56.66666666666666
+            },
+            "norms_argmax": {
+              "E/I": 0.358974358974359,
+              "S/N": 0.5277777777777777,
+              "T/F": 0.5833333333333333,
+              "P/J": 0.5666666666666665
+            },
+            "bands_argmax": {
+              "E/I": "L",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "H"
+            }
+          }
+        }
+      }
+    },
+    "zhongli-zh": {
+      "lang": "zh",
+      "n_mem": 128,
+      "strategies": {
+        "ordinary": {
+          "BFI": {
+            "scores": {
+              "Extraversion": 2.970375904580578,
+              "Agreeableness": 3.265485863925682,
+              "Conscientiousness": 3.1956628391312227,
+              "Neuroticism": 2.7861948523204774,
+              "Openness": 2.9183135389350356
+            },
+            "norms": {
+              "Extraversion": 0.49259397614514455,
+              "Agreeableness": 0.5663714659814205,
+              "Conscientiousness": 0.5489157097828057,
+              "Neuroticism": 0.44654871308011934,
+              "Openness": 0.4795783847337589
+            },
+            "bands": {
+              "Extraversion": "L",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "L"
+            },
+            "scores_argmax": {
+              "Extraversion": 2.875,
+              "Agreeableness": 3.4444444444444446,
+              "Conscientiousness": 3.6666666666666665,
+              "Neuroticism": 2.75,
+              "Openness": 2.4
+            },
+            "norms_argmax": {
+              "Extraversion": 0.46875,
+              "Agreeableness": 0.6111111111111112,
+              "Conscientiousness": 0.6666666666666666,
+              "Neuroticism": 0.4375,
+              "Openness": 0.35
+            },
+            "bands_argmax": {
+              "Extraversion": "L",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "L"
+            }
+          },
+          "16Personalities": {
+            "scores": {
+              "E/I": 47.59740566428846,
+              "S/N": 51.420219778083265,
+              "T/F": 56.58953844705441,
+              "P/J": 53.73443588019452
+            },
+            "norms": {
+              "E/I": 0.4759740566428846,
+              "S/N": 0.5142021977808326,
+              "T/F": 0.5658953844705441,
+              "P/J": 0.5373443588019452
+            },
+            "bands": {
+              "E/I": "L",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "H"
+            },
+            "scores_argmax": {
+              "E/I": 46.15384615384615,
+              "S/N": 63.888888888888886,
+              "T/F": 60.0,
+              "P/J": 52.222222222222214
+            },
+            "norms_argmax": {
+              "E/I": 0.4615384615384615,
+              "S/N": 0.6388888888888888,
+              "T/F": 0.6,
+              "P/J": 0.5222222222222221
+            },
+            "bands_argmax": {
+              "E/I": "L",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "H"
+            }
+          }
+        },
+        "C-A": {
+          "BFI": {
+            "scores": {
+              "Extraversion": 2.9961686895694584,
+              "Agreeableness": 3.1067166643010244,
+              "Conscientiousness": 3.0523525670998626,
+              "Neuroticism": 2.9456137982197106,
+              "Openness": 3.048954392969608
+            },
+            "norms": {
+              "Extraversion": 0.4990421723923646,
+              "Agreeableness": 0.5266791660752561,
+              "Conscientiousness": 0.5130881417749656,
+              "Neuroticism": 0.48640344955492765,
+              "Openness": 0.512238598242402
+            },
+            "bands": {
+              "Extraversion": "L",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "H"
+            },
+            "scores_argmax": {
+              "Extraversion": 3.375,
+              "Agreeableness": 3.888888888888889,
+              "Conscientiousness": 3.0,
+              "Neuroticism": 2.25,
+              "Openness": 3.2
+            },
+            "norms_argmax": {
+              "Extraversion": 0.59375,
+              "Agreeableness": 0.7222222222222222,
+              "Conscientiousness": 0.5,
+              "Neuroticism": 0.3125,
+              "Openness": 0.55
+            },
+            "bands_argmax": {
+              "Extraversion": "H",
+              "Agreeableness": "H",
+              "Conscientiousness": "L",
+              "Neuroticism": "L",
+              "Openness": "H"
+            }
+          },
+          "16Personalities": {
+            "scores": {
+              "E/I": 54.069579001038505,
+              "S/N": 50.664995524049225,
+              "T/F": 55.29902541544287,
+              "P/J": 49.723569808217384
+            },
+            "norms": {
+              "E/I": 0.540695790010385,
+              "S/N": 0.5066499552404923,
+              "T/F": 0.5529902541544287,
+              "P/J": 0.4972356980821738
+            },
+            "bands": {
+              "E/I": "H",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "L"
+            },
+            "scores_argmax": {
+              "E/I": 60.25641025641026,
+              "S/N": 58.333333333333336,
+              "T/F": 59.999999999999986,
+              "P/J": 47.77777777777778
+            },
+            "norms_argmax": {
+              "E/I": 0.6025641025641026,
+              "S/N": 0.5833333333333334,
+              "T/F": 0.5999999999999999,
+              "P/J": 0.4777777777777778
+            },
+            "bands_argmax": {
+              "E/I": "H",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "L"
+            }
+          }
+        },
+        "C-M": {
+          "BFI": {
+            "scores": {
+              "Extraversion": 3.1957591408863664,
+              "Agreeableness": 3.455743362506231,
+              "Conscientiousness": 2.8249137796875505,
+              "Neuroticism": 2.801381959579885,
+              "Openness": 2.942794624529779
+            },
+            "norms": {
+              "Extraversion": 0.5489397852215916,
+              "Agreeableness": 0.6139358406265577,
+              "Conscientiousness": 0.45622844492188763,
+              "Neuroticism": 0.45034548989497125,
+              "Openness": 0.4856986561324448
+            },
+            "bands": {
+              "Extraversion": "H",
+              "Agreeableness": "H",
+              "Conscientiousness": "L",
+              "Neuroticism": "L",
+              "Openness": "L"
+            },
+            "scores_argmax": {
+              "Extraversion": 3.75,
+              "Agreeableness": 3.888888888888889,
+              "Conscientiousness": 3.0,
+              "Neuroticism": 2.0,
+              "Openness": 2.8
+            },
+            "norms_argmax": {
+              "Extraversion": 0.6875,
+              "Agreeableness": 0.7222222222222222,
+              "Conscientiousness": 0.5,
+              "Neuroticism": 0.25,
+              "Openness": 0.44999999999999996
+            },
+            "bands_argmax": {
+              "Extraversion": "H",
+              "Agreeableness": "H",
+              "Conscientiousness": "L",
+              "Neuroticism": "L",
+              "Openness": "L"
+            }
+          },
+          "16Personalities": {
+            "scores": {
+              "E/I": 48.05178384965238,
+              "S/N": 44.033043749611046,
+              "T/F": 56.70520151848905,
+              "P/J": 58.90460584571378
+            },
+            "norms": {
+              "E/I": 0.4805178384965238,
+              "S/N": 0.44033043749611045,
+              "T/F": 0.5670520151848905,
+              "P/J": 0.5890460584571379
+            },
+            "bands": {
+              "E/I": "L",
+              "S/N": "L",
+              "T/F": "H",
+              "P/J": "H"
+            },
+            "scores_argmax": {
+              "E/I": 46.15384615384615,
+              "S/N": 58.333333333333336,
+              "T/F": 61.666666666666664,
+              "P/J": 53.333333333333336
+            },
+            "norms_argmax": {
+              "E/I": 0.4615384615384615,
+              "S/N": 0.5833333333333334,
+              "T/F": 0.6166666666666667,
+              "P/J": 0.5333333333333333
+            },
+            "bands_argmax": {
+              "E/I": "L",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "H"
+            }
+          }
+        },
+        "S-S": {
+          "BFI": {
+            "scores": {
+              "Extraversion": 3.125437631737441,
+              "Agreeableness": 3.2813245496816106,
+              "Conscientiousness": 3.0161933220095105,
+              "Neuroticism": 2.8602816653437912,
+              "Openness": 2.6993558232672514
+            },
+            "norms": {
+              "Extraversion": 0.5313594079343602,
+              "Agreeableness": 0.5703311374204026,
+              "Conscientiousness": 0.5040483305023776,
+              "Neuroticism": 0.4650704163359478,
+              "Openness": 0.42483895581681286
+            },
+            "bands": {
+              "Extraversion": "H",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "L"
+            },
+            "scores_argmax": {
+              "Extraversion": 3.25,
+              "Agreeableness": 3.4444444444444446,
+              "Conscientiousness": 3.2222222222222223,
+              "Neuroticism": 3.0,
+              "Openness": 2.8
+            },
+            "norms_argmax": {
+              "Extraversion": 0.5625,
+              "Agreeableness": 0.6111111111111112,
+              "Conscientiousness": 0.5555555555555556,
+              "Neuroticism": 0.5,
+              "Openness": 0.44999999999999996
+            },
+            "bands_argmax": {
+              "Extraversion": "H",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "L"
+            }
+          },
+          "16Personalities": {
+            "scores": {
+              "E/I": 46.065920597921384,
+              "S/N": 51.25589476536132,
+              "T/F": 58.0528067300717,
+              "P/J": 50.39767554961144
+            },
+            "norms": {
+              "E/I": 0.46065920597921384,
+              "S/N": 0.5125589476536132,
+              "T/F": 0.580528067300717,
+              "P/J": 0.5039767554961144
+            },
+            "bands": {
+              "E/I": "L",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "H"
+            },
+            "scores_argmax": {
+              "E/I": 38.46153846153846,
+              "S/N": 58.333333333333336,
+              "T/F": 70.0,
+              "P/J": 44.44444444444444
+            },
+            "norms_argmax": {
+              "E/I": 0.3846153846153846,
+              "S/N": 0.5833333333333334,
+              "T/F": 0.7,
+              "P/J": 0.4444444444444444
+            },
+            "bands_argmax": {
+              "E/I": "L",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "L"
+            }
+          }
+        },
+        "S-E": {
+          "BFI": {
+            "scores": {
+              "Extraversion": 2.688023492693901,
+              "Agreeableness": 3.0579271535906525,
+              "Conscientiousness": 3.109014027648502,
+              "Neuroticism": 2.8730297861620784,
+              "Openness": 3.0903670666739345
+            },
+            "norms": {
+              "Extraversion": 0.42200587317347527,
+              "Agreeableness": 0.5144817883976631,
+              "Conscientiousness": 0.5272535069121255,
+              "Neuroticism": 0.4682574465405196,
+              "Openness": 0.5225917666684836
+            },
+            "bands": {
+              "Extraversion": "L",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "H"
+            },
+            "scores_argmax": {
+              "Extraversion": 2.5,
+              "Agreeableness": 3.0,
+              "Conscientiousness": 3.4444444444444446,
+              "Neuroticism": 2.5,
+              "Openness": 3.2
+            },
+            "norms_argmax": {
+              "Extraversion": 0.375,
+              "Agreeableness": 0.5,
+              "Conscientiousness": 0.6111111111111112,
+              "Neuroticism": 0.375,
+              "Openness": 0.55
+            },
+            "bands_argmax": {
+              "Extraversion": "L",
+              "Agreeableness": "L",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "H"
+            }
+          },
+          "16Personalities": {
+            "scores": {
+              "E/I": 48.072459250210954,
+              "S/N": 50.799151760293164,
+              "T/F": 57.84226246449786,
+              "P/J": 53.477212876443645
+            },
+            "norms": {
+              "E/I": 0.4807245925021095,
+              "S/N": 0.5079915176029316,
+              "T/F": 0.5784226246449786,
+              "P/J": 0.5347721287644365
+            },
+            "bands": {
+              "E/I": "L",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "H"
+            },
+            "scores_argmax": {
+              "E/I": 46.15384615384615,
+              "S/N": 58.333333333333336,
+              "T/F": 61.666666666666664,
+              "P/J": 52.222222222222214
+            },
+            "norms_argmax": {
+              "E/I": 0.4615384615384615,
+              "S/N": 0.5833333333333334,
+              "T/F": 0.6166666666666667,
+              "P/J": 0.5222222222222221
+            },
+            "bands_argmax": {
+              "E/I": "L",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "H"
+            }
+          }
+        }
+      }
+    },
+    "hutao-zh": {
+      "lang": "zh",
+      "n_mem": 128,
+      "strategies": {
+        "ordinary": {
+          "BFI": {
+            "scores": {
+              "Extraversion": 2.93508833902888,
+              "Agreeableness": 3.2006735807905593,
+              "Conscientiousness": 3.1033106746359005,
+              "Neuroticism": 3.2834125498775393,
+              "Openness": 3.358615457639098
+            },
+            "norms": {
+              "Extraversion": 0.48377208475722,
+              "Agreeableness": 0.5501683951976398,
+              "Conscientiousness": 0.5258276686589751,
+              "Neuroticism": 0.5708531374693848,
+              "Openness": 0.5896538644097745
+            },
+            "bands": {
+              "Extraversion": "L",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "H",
+              "Openness": "H"
+            },
+            "scores_argmax": {
+              "Extraversion": 3.25,
+              "Agreeableness": 3.2222222222222223,
+              "Conscientiousness": 3.2222222222222223,
+              "Neuroticism": 3.5,
+              "Openness": 3.6
+            },
+            "norms_argmax": {
+              "Extraversion": 0.5625,
+              "Agreeableness": 0.5555555555555556,
+              "Conscientiousness": 0.5555555555555556,
+              "Neuroticism": 0.625,
+              "Openness": 0.65
+            },
+            "bands_argmax": {
+              "Extraversion": "H",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "H",
+              "Openness": "H"
+            }
+          },
+          "16Personalities": {
+            "scores": {
+              "E/I": 43.236923565228395,
+              "S/N": 44.160769371471055,
+              "T/F": 52.527153585106134,
+              "P/J": 55.254535134881735
+            },
+            "norms": {
+              "E/I": 0.43236923565228397,
+              "S/N": 0.44160769371471054,
+              "T/F": 0.5252715358510613,
+              "P/J": 0.5525453513488173
+            },
+            "bands": {
+              "E/I": "L",
+              "S/N": "L",
+              "T/F": "H",
+              "P/J": "H"
+            },
+            "scores_argmax": {
+              "E/I": 30.769230769230766,
+              "S/N": 51.388888888888886,
+              "T/F": 63.33333333333333,
+              "P/J": 57.777777777777764
+            },
+            "norms_argmax": {
+              "E/I": 0.30769230769230765,
+              "S/N": 0.5138888888888888,
+              "T/F": 0.6333333333333333,
+              "P/J": 0.5777777777777776
+            },
+            "bands_argmax": {
+              "E/I": "L",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "H"
+            }
+          }
+        },
+        "C-A": {
+          "BFI": {
+            "scores": {
+              "Extraversion": 3.035137713653967,
+              "Agreeableness": 3.1126559017640023,
+              "Conscientiousness": 3.364648992402686,
+              "Neuroticism": 2.9424727368168533,
+              "Openness": 3.5834057879634202
+            },
+            "norms": {
+              "Extraversion": 0.5087844284134917,
+              "Agreeableness": 0.5281639754410006,
+              "Conscientiousness": 0.5911622481006715,
+              "Neuroticism": 0.4856181842042133,
+              "Openness": 0.6458514469908551
+            },
+            "bands": {
+              "Extraversion": "H",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "H"
+            },
+            "scores_argmax": {
+              "Extraversion": 2.75,
+              "Agreeableness": 3.3333333333333335,
+              "Conscientiousness": 4.333333333333333,
+              "Neuroticism": 3.125,
+              "Openness": 4.2
+            },
+            "norms_argmax": {
+              "Extraversion": 0.4375,
+              "Agreeableness": 0.5833333333333334,
+              "Conscientiousness": 0.8333333333333333,
+              "Neuroticism": 0.53125,
+              "Openness": 0.8
+            },
+            "bands_argmax": {
+              "Extraversion": "L",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "H",
+              "Openness": "H"
+            }
+          },
+          "16Personalities": {
+            "scores": {
+              "E/I": 37.023795165646916,
+              "S/N": 52.9477090574801,
+              "T/F": 50.9710836992599,
+              "P/J": 52.163144789067
+            },
+            "norms": {
+              "E/I": 0.37023795165646917,
+              "S/N": 0.529477090574801,
+              "T/F": 0.509710836992599,
+              "P/J": 0.52163144789067
+            },
+            "bands": {
+              "E/I": "L",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "H"
+            },
+            "scores_argmax": {
+              "E/I": 25.64102564102564,
+              "S/N": 52.77777777777777,
+              "T/F": 48.33333333333333,
+              "P/J": 53.33333333333333
+            },
+            "norms_argmax": {
+              "E/I": 0.2564102564102564,
+              "S/N": 0.5277777777777777,
+              "T/F": 0.4833333333333333,
+              "P/J": 0.5333333333333333
+            },
+            "bands_argmax": {
+              "E/I": "L",
+              "S/N": "H",
+              "T/F": "L",
+              "P/J": "H"
+            }
+          }
+        },
+        "C-M": {
+          "BFI": {
+            "scores": {
+              "Extraversion": 3.4510083326604217,
+              "Agreeableness": 3.268598821531567,
+              "Conscientiousness": 3.323022205796507,
+              "Neuroticism": 2.7577804210595787,
+              "Openness": 3.043863895535469
+            },
+            "norms": {
+              "Extraversion": 0.6127520831651054,
+              "Agreeableness": 0.5671497053828918,
+              "Conscientiousness": 0.5807555514491267,
+              "Neuroticism": 0.43944510526489466,
+              "Openness": 0.5109659738838672
+            },
+            "bands": {
+              "Extraversion": "H",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "H"
+            },
+            "scores_argmax": {
+              "Extraversion": 4.0,
+              "Agreeableness": 3.3333333333333335,
+              "Conscientiousness": 4.0,
+              "Neuroticism": 2.5,
+              "Openness": 3.6
+            },
+            "norms_argmax": {
+              "Extraversion": 0.75,
+              "Agreeableness": 0.5833333333333334,
+              "Conscientiousness": 0.75,
+              "Neuroticism": 0.375,
+              "Openness": 0.65
+            },
+            "bands_argmax": {
+              "Extraversion": "H",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "H"
+            }
+          },
+          "16Personalities": {
+            "scores": {
+              "E/I": 37.801847073177875,
+              "S/N": 48.312522187673785,
+              "T/F": 57.66388110234402,
+              "P/J": 48.20545622264034
+            },
+            "norms": {
+              "E/I": 0.37801847073177874,
+              "S/N": 0.48312522187673784,
+              "T/F": 0.5766388110234402,
+              "P/J": 0.4820545622264034
+            },
+            "bands": {
+              "E/I": "L",
+              "S/N": "L",
+              "T/F": "H",
+              "P/J": "L"
+            },
+            "scores_argmax": {
+              "E/I": 25.64102564102564,
+              "S/N": 52.77777777777778,
+              "T/F": 61.666666666666664,
+              "P/J": 42.222222222222214
+            },
+            "norms_argmax": {
+              "E/I": 0.2564102564102564,
+              "S/N": 0.5277777777777778,
+              "T/F": 0.6166666666666667,
+              "P/J": 0.42222222222222217
+            },
+            "bands_argmax": {
+              "E/I": "L",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "L"
+            }
+          }
+        },
+        "S-S": {
+          "BFI": {
+            "scores": {
+              "Extraversion": 3.1108444719575346,
+              "Agreeableness": 3.1140378465255103,
+              "Conscientiousness": 3.224879304981894,
+              "Neuroticism": 2.987904023146257,
+              "Openness": 3.191266601253301
+            },
+            "norms": {
+              "Extraversion": 0.5277111179893836,
+              "Agreeableness": 0.5285094616313776,
+              "Conscientiousness": 0.5562198262454735,
+              "Neuroticism": 0.4969760057865642,
+              "Openness": 0.5478166503133253
+            },
+            "bands": {
+              "Extraversion": "H",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "H"
+            },
+            "scores_argmax": {
+              "Extraversion": 4.0,
+              "Agreeableness": 3.888888888888889,
+              "Conscientiousness": 3.6666666666666665,
+              "Neuroticism": 3.0,
+              "Openness": 3.4
+            },
+            "norms_argmax": {
+              "Extraversion": 0.75,
+              "Agreeableness": 0.7222222222222222,
+              "Conscientiousness": 0.6666666666666666,
+              "Neuroticism": 0.5,
+              "Openness": 0.6
+            },
+            "bands_argmax": {
+              "Extraversion": "H",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "H"
+            }
+          },
+          "16Personalities": {
+            "scores": {
+              "E/I": 43.711993422430865,
+              "S/N": 48.506031451850305,
+              "T/F": 58.82427932112478,
+              "P/J": 48.822789313271635
+            },
+            "norms": {
+              "E/I": 0.43711993422430867,
+              "S/N": 0.48506031451850307,
+              "T/F": 0.5882427932112477,
+              "P/J": 0.48822789313271636
+            },
+            "bands": {
+              "E/I": "L",
+              "S/N": "L",
+              "T/F": "H",
+              "P/J": "L"
+            },
+            "scores_argmax": {
+              "E/I": 46.15384615384615,
+              "S/N": 63.888888888888886,
+              "T/F": 64.99999999999999,
+              "P/J": 44.444444444444436
+            },
+            "norms_argmax": {
+              "E/I": 0.4615384615384615,
+              "S/N": 0.6388888888888888,
+              "T/F": 0.6499999999999999,
+              "P/J": 0.44444444444444436
+            },
+            "bands_argmax": {
+              "E/I": "L",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "L"
+            }
+          }
+        },
+        "S-E": {
+          "BFI": {
+            "scores": {
+              "Extraversion": 3.0859892631415278,
+              "Agreeableness": 3.3125137800557747,
+              "Conscientiousness": 3.1474528554826975,
+              "Neuroticism": 3.1729155333014205,
+              "Openness": 3.468604521267116
+            },
+            "norms": {
+              "Extraversion": 0.5214973157853819,
+              "Agreeableness": 0.5781284450139437,
+              "Conscientiousness": 0.5368632138706744,
+              "Neuroticism": 0.5432288833253551,
+              "Openness": 0.617151130316779
+            },
+            "bands": {
+              "Extraversion": "H",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "H",
+              "Openness": "H"
+            },
+            "scores_argmax": {
+              "Extraversion": 3.25,
+              "Agreeableness": 3.6666666666666665,
+              "Conscientiousness": 3.4444444444444446,
+              "Neuroticism": 3.75,
+              "Openness": 3.6
+            },
+            "norms_argmax": {
+              "Extraversion": 0.5625,
+              "Agreeableness": 0.6666666666666666,
+              "Conscientiousness": 0.6111111111111112,
+              "Neuroticism": 0.6875,
+              "Openness": 0.65
+            },
+            "bands_argmax": {
+              "Extraversion": "H",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "H",
+              "Openness": "H"
+            }
+          },
+          "16Personalities": {
+            "scores": {
+              "E/I": 50.03522042340289,
+              "S/N": 48.78556993789971,
+              "T/F": 57.76925038662739,
+              "P/J": 44.28940599829528
+            },
+            "norms": {
+              "E/I": 0.5003522042340289,
+              "S/N": 0.4878556993789971,
+              "T/F": 0.5776925038662739,
+              "P/J": 0.4428940599829528
+            },
+            "bands": {
+              "E/I": "H",
+              "S/N": "L",
+              "T/F": "H",
+              "P/J": "L"
+            },
+            "scores_argmax": {
+              "E/I": 53.84615384615384,
+              "S/N": 47.22222222222223,
+              "T/F": 61.666666666666664,
+              "P/J": 35.55555555555555
+            },
+            "norms_argmax": {
+              "E/I": 0.5384615384615384,
+              "S/N": 0.47222222222222227,
+              "T/F": 0.6166666666666667,
+              "P/J": 0.3555555555555555
+            },
+            "bands_argmax": {
+              "E/I": "H",
+              "S/N": "L",
+              "T/F": "H",
+              "P/J": "L"
+            }
+          }
+        }
+      }
+    },
+    "haruhi-zh": {
+      "lang": "zh",
+      "n_mem": 128,
+      "strategies": {
+        "ordinary": {
+          "BFI": {
+            "scores": {
+              "Extraversion": 3.0539436554536223,
+              "Agreeableness": 3.0857017002999783,
+              "Conscientiousness": 3.0958739635017185,
+              "Neuroticism": 2.8581947702914476,
+              "Openness": 3.0458202581852674
+            },
+            "norms": {
+              "Extraversion": 0.5134859138634056,
+              "Agreeableness": 0.5214254250749946,
+              "Conscientiousness": 0.5239684908754296,
+              "Neuroticism": 0.4645486925728619,
+              "Openness": 0.5114550645463168
+            },
+            "bands": {
+              "Extraversion": "H",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "H"
+            },
+            "scores_argmax": {
+              "Extraversion": 2.75,
+              "Agreeableness": 3.2222222222222223,
+              "Conscientiousness": 3.0,
+              "Neuroticism": 2.75,
+              "Openness": 2.8
+            },
+            "norms_argmax": {
+              "Extraversion": 0.4375,
+              "Agreeableness": 0.5555555555555556,
+              "Conscientiousness": 0.5,
+              "Neuroticism": 0.4375,
+              "Openness": 0.44999999999999996
+            },
+            "bands_argmax": {
+              "Extraversion": "L",
+              "Agreeableness": "H",
+              "Conscientiousness": "L",
+              "Neuroticism": "L",
+              "Openness": "L"
+            }
+          },
+          "16Personalities": {
+            "scores": {
+              "E/I": 49.35380844757534,
+              "S/N": 47.932378526052666,
+              "T/F": 51.199406410257026,
+              "P/J": 50.06418031536871
+            },
+            "norms": {
+              "E/I": 0.49353808447575337,
+              "S/N": 0.47932378526052666,
+              "T/F": 0.5119940641025703,
+              "P/J": 0.5006418031536871
+            },
+            "bands": {
+              "E/I": "L",
+              "S/N": "L",
+              "T/F": "H",
+              "P/J": "H"
+            },
+            "scores_argmax": {
+              "E/I": 42.30769230769231,
+              "S/N": 52.77777777777777,
+              "T/F": 54.16666666666665,
+              "P/J": 49.99999999999999
+            },
+            "norms_argmax": {
+              "E/I": 0.4230769230769231,
+              "S/N": 0.5277777777777777,
+              "T/F": 0.5416666666666665,
+              "P/J": 0.49999999999999994
+            },
+            "bands_argmax": {
+              "E/I": "L",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "L"
+            }
+          }
+        },
+        "C-A": {
+          "BFI": {
+            "scores": {
+              "Extraversion": 3.0371944354847074,
+              "Agreeableness": 3.17237560181982,
+              "Conscientiousness": 2.943906798130936,
+              "Neuroticism": 2.9712129225954413,
+              "Openness": 2.9223542833700775
+            },
+            "norms": {
+              "Extraversion": 0.5092986088711768,
+              "Agreeableness": 0.543093900454955,
+              "Conscientiousness": 0.48597669953273404,
+              "Neuroticism": 0.49280323064886034,
+              "Openness": 0.4805885708425194
+            },
+            "bands": {
+              "Extraversion": "H",
+              "Agreeableness": "H",
+              "Conscientiousness": "L",
+              "Neuroticism": "L",
+              "Openness": "L"
+            },
+            "scores_argmax": {
+              "Extraversion": 3.0,
+              "Agreeableness": 3.2222222222222223,
+              "Conscientiousness": 3.0,
+              "Neuroticism": 2.75,
+              "Openness": 3.0
+            },
+            "norms_argmax": {
+              "Extraversion": 0.5,
+              "Agreeableness": 0.5555555555555556,
+              "Conscientiousness": 0.5,
+              "Neuroticism": 0.4375,
+              "Openness": 0.5
+            },
+            "bands_argmax": {
+              "Extraversion": "L",
+              "Agreeableness": "H",
+              "Conscientiousness": "L",
+              "Neuroticism": "L",
+              "Openness": "L"
+            }
+          },
+          "16Personalities": {
+            "scores": {
+              "E/I": 45.79230343373732,
+              "S/N": 47.029589437362226,
+              "T/F": 53.14291470528891,
+              "P/J": 50.00392851316266
+            },
+            "norms": {
+              "E/I": 0.4579230343373732,
+              "S/N": 0.47029589437362224,
+              "T/F": 0.5314291470528891,
+              "P/J": 0.5000392851316267
+            },
+            "bands": {
+              "E/I": "L",
+              "S/N": "L",
+              "T/F": "H",
+              "P/J": "H"
+            },
+            "scores_argmax": {
+              "E/I": 35.8974358974359,
+              "S/N": 51.388888888888886,
+              "T/F": 53.33333333333333,
+              "P/J": 48.88888888888889
+            },
+            "norms_argmax": {
+              "E/I": 0.358974358974359,
+              "S/N": 0.5138888888888888,
+              "T/F": 0.5333333333333333,
+              "P/J": 0.48888888888888893
+            },
+            "bands_argmax": {
+              "E/I": "L",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "L"
+            }
+          }
+        },
+        "C-M": {
+          "BFI": {
+            "scores": {
+              "Extraversion": 3.0857720701023936,
+              "Agreeableness": 3.1503979017337165,
+              "Conscientiousness": 2.81752961460087,
+              "Neuroticism": 2.899451873265207,
+              "Openness": 3.0626915667206047
+            },
+            "norms": {
+              "Extraversion": 0.5214430175255984,
+              "Agreeableness": 0.5375994754334291,
+              "Conscientiousness": 0.45438240365021754,
+              "Neuroticism": 0.4748629683163017,
+              "Openness": 0.5156728916801512
+            },
+            "bands": {
+              "Extraversion": "H",
+              "Agreeableness": "H",
+              "Conscientiousness": "L",
+              "Neuroticism": "L",
+              "Openness": "H"
+            },
+            "scores_argmax": {
+              "Extraversion": 3.25,
+              "Agreeableness": 3.4444444444444446,
+              "Conscientiousness": 2.5555555555555554,
+              "Neuroticism": 2.75,
+              "Openness": 3.6
+            },
+            "norms_argmax": {
+              "Extraversion": 0.5625,
+              "Agreeableness": 0.6111111111111112,
+              "Conscientiousness": 0.38888888888888884,
+              "Neuroticism": 0.4375,
+              "Openness": 0.65
+            },
+            "bands_argmax": {
+              "Extraversion": "H",
+              "Agreeableness": "H",
+              "Conscientiousness": "L",
+              "Neuroticism": "L",
+              "Openness": "H"
+            }
+          },
+          "16Personalities": {
+            "scores": {
+              "E/I": 46.21335241752558,
+              "S/N": 48.75368935625172,
+              "T/F": 54.775023087471105,
+              "P/J": 51.18903725821939
+            },
+            "norms": {
+              "E/I": 0.46213352417525577,
+              "S/N": 0.48753689356251717,
+              "T/F": 0.5477502308747111,
+              "P/J": 0.5118903725821939
+            },
+            "bands": {
+              "E/I": "L",
+              "S/N": "L",
+              "T/F": "H",
+              "P/J": "H"
+            },
+            "scores_argmax": {
+              "E/I": 41.02564102564102,
+              "S/N": 58.333333333333336,
+              "T/F": 60.0,
+              "P/J": 47.77777777777778
+            },
+            "norms_argmax": {
+              "E/I": 0.41025641025641024,
+              "S/N": 0.5833333333333334,
+              "T/F": 0.6,
+              "P/J": 0.4777777777777778
+            },
+            "bands_argmax": {
+              "E/I": "L",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "L"
+            }
+          }
+        },
+        "S-S": {
+          "BFI": {
+            "scores": {
+              "Extraversion": 2.994393376633525,
+              "Agreeableness": 3.296461415787538,
+              "Conscientiousness": 2.842979239920775,
+              "Neuroticism": 2.660281694494188,
+              "Openness": 3.0442202508449556
+            },
+            "norms": {
+              "Extraversion": 0.4985983441583812,
+              "Agreeableness": 0.5741153539468845,
+              "Conscientiousness": 0.46074480998019374,
+              "Neuroticism": 0.41507042362354696,
+              "Openness": 0.5110550627112389
+            },
+            "bands": {
+              "Extraversion": "L",
+              "Agreeableness": "H",
+              "Conscientiousness": "L",
+              "Neuroticism": "L",
+              "Openness": "H"
+            },
+            "scores_argmax": {
+              "Extraversion": 3.25,
+              "Agreeableness": 4.111111111111111,
+              "Conscientiousness": 3.0,
+              "Neuroticism": 2.25,
+              "Openness": 2.8
+            },
+            "norms_argmax": {
+              "Extraversion": 0.5625,
+              "Agreeableness": 0.7777777777777777,
+              "Conscientiousness": 0.5,
+              "Neuroticism": 0.3125,
+              "Openness": 0.44999999999999996
+            },
+            "bands_argmax": {
+              "Extraversion": "H",
+              "Agreeableness": "H",
+              "Conscientiousness": "L",
+              "Neuroticism": "L",
+              "Openness": "L"
+            }
+          },
+          "16Personalities": {
+            "scores": {
+              "E/I": 46.45236958451091,
+              "S/N": 51.776290651307335,
+              "T/F": 55.1103411288932,
+              "P/J": 53.02494830555387
+            },
+            "norms": {
+              "E/I": 0.4645236958451091,
+              "S/N": 0.5177629065130733,
+              "T/F": 0.5511034112889319,
+              "P/J": 0.5302494830555387
+            },
+            "bands": {
+              "E/I": "L",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "H"
+            },
+            "scores_argmax": {
+              "E/I": 41.02564102564102,
+              "S/N": 58.333333333333336,
+              "T/F": 60.0,
+              "P/J": 50.0
+            },
+            "norms_argmax": {
+              "E/I": 0.41025641025641024,
+              "S/N": 0.5833333333333334,
+              "T/F": 0.6,
+              "P/J": 0.5
+            },
+            "bands_argmax": {
+              "E/I": "L",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "L"
+            }
+          }
+        },
+        "S-E": {
+          "BFI": {
+            "scores": {
+              "Extraversion": 3.0006768158636987,
+              "Agreeableness": 3.181393784160415,
+              "Conscientiousness": 2.715022488600678,
+              "Neuroticism": 2.9001566860824823,
+              "Openness": 2.889261669293046
+            },
+            "norms": {
+              "Extraversion": 0.5001692039659247,
+              "Agreeableness": 0.5453484460401038,
+              "Conscientiousness": 0.4287556221501695,
+              "Neuroticism": 0.4750391715206206,
+              "Openness": 0.47231541732326154
+            },
+            "bands": {
+              "Extraversion": "H",
+              "Agreeableness": "H",
+              "Conscientiousness": "L",
+              "Neuroticism": "L",
+              "Openness": "L"
+            },
+            "scores_argmax": {
+              "Extraversion": 3.25,
+              "Agreeableness": 3.4444444444444446,
+              "Conscientiousness": 2.3333333333333335,
+              "Neuroticism": 2.5,
+              "Openness": 2.6
+            },
+            "norms_argmax": {
+              "Extraversion": 0.5625,
+              "Agreeableness": 0.6111111111111112,
+              "Conscientiousness": 0.33333333333333337,
+              "Neuroticism": 0.375,
+              "Openness": 0.4
+            },
+            "bands_argmax": {
+              "Extraversion": "H",
+              "Agreeableness": "H",
+              "Conscientiousness": "L",
+              "Neuroticism": "L",
+              "Openness": "L"
+            }
+          },
+          "16Personalities": {
+            "scores": {
+              "E/I": 46.599205828104644,
+              "S/N": 52.67110590616033,
+              "T/F": 58.24620150456515,
+              "P/J": 50.839282909615164
+            },
+            "norms": {
+              "E/I": 0.46599205828104645,
+              "S/N": 0.5267110590616033,
+              "T/F": 0.5824620150456515,
+              "P/J": 0.5083928290961517
+            },
+            "bands": {
+              "E/I": "L",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "H"
+            },
+            "scores_argmax": {
+              "E/I": 41.02564102564102,
+              "S/N": 45.83333333333332,
+              "T/F": 65.0,
+              "P/J": 44.44444444444444
+            },
+            "norms_argmax": {
+              "E/I": 0.41025641025641024,
+              "S/N": 0.4583333333333332,
+              "T/F": 0.65,
+              "P/J": 0.4444444444444444
+            },
+            "bands_argmax": {
+              "E/I": "L",
+              "S/N": "L",
+              "T/F": "H",
+              "P/J": "L"
+            }
+          }
+        }
+      }
+    },
+    "ayaka-zh": {
+      "lang": "zh",
+      "n_mem": 117,
+      "strategies": {
+        "ordinary": {
+          "BFI": {
+            "scores": {
+              "Extraversion": 2.9956466308794916,
+              "Agreeableness": 3.320095591661003,
+              "Conscientiousness": 3.230426827652587,
+              "Neuroticism": 2.939298810902983,
+              "Openness": 3.200727310869843
+            },
+            "norms": {
+              "Extraversion": 0.4989116577198729,
+              "Agreeableness": 0.5800238979152508,
+              "Conscientiousness": 0.5576067069131467,
+              "Neuroticism": 0.48482470272574574,
+              "Openness": 0.5501818277174607
+            },
+            "bands": {
+              "Extraversion": "L",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "H"
+            },
+            "scores_argmax": {
+              "Extraversion": 3.0,
+              "Agreeableness": 3.4444444444444446,
+              "Conscientiousness": 3.888888888888889,
+              "Neuroticism": 2.75,
+              "Openness": 3.3
+            },
+            "norms_argmax": {
+              "Extraversion": 0.5,
+              "Agreeableness": 0.6111111111111112,
+              "Conscientiousness": 0.7222222222222222,
+              "Neuroticism": 0.4375,
+              "Openness": 0.575
+            },
+            "bands_argmax": {
+              "Extraversion": "L",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "H"
+            }
+          },
+          "16Personalities": {
+            "scores": {
+              "E/I": 51.369429657904384,
+              "S/N": 53.231014774387894,
+              "T/F": 51.43566582041482,
+              "P/J": 51.640005737750066
+            },
+            "norms": {
+              "E/I": 0.5136942965790439,
+              "S/N": 0.532310147743879,
+              "T/F": 0.5143566582041482,
+              "P/J": 0.5164000573775006
+            },
+            "bands": {
+              "E/I": "H",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "H"
+            },
+            "scores_argmax": {
+              "E/I": 52.56410256410257,
+              "S/N": 58.333333333333336,
+              "T/F": 48.333333333333336,
+              "P/J": 53.333333333333336
+            },
+            "norms_argmax": {
+              "E/I": 0.5256410256410257,
+              "S/N": 0.5833333333333334,
+              "T/F": 0.48333333333333334,
+              "P/J": 0.5333333333333333
+            },
+            "bands_argmax": {
+              "E/I": "H",
+              "S/N": "H",
+              "T/F": "L",
+              "P/J": "H"
+            }
+          }
+        },
+        "C-A": {
+          "BFI": {
+            "scores": {
+              "Extraversion": 3.389130737632513,
+              "Agreeableness": 3.0731131916658745,
+              "Conscientiousness": 3.282940468440453,
+              "Neuroticism": 2.833556158817373,
+              "Openness": 3.2935226749628783
+            },
+            "norms": {
+              "Extraversion": 0.5972826844081283,
+              "Agreeableness": 0.5182782979164686,
+              "Conscientiousness": 0.5707351171101133,
+              "Neuroticism": 0.4583890397043433,
+              "Openness": 0.5733806687407196
+            },
+            "bands": {
+              "Extraversion": "H",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "H"
+            },
+            "scores_argmax": {
+              "Extraversion": 4.0,
+              "Agreeableness": 3.0,
+              "Conscientiousness": 3.888888888888889,
+              "Neuroticism": 3.0,
+              "Openness": 3.0
+            },
+            "norms_argmax": {
+              "Extraversion": 0.75,
+              "Agreeableness": 0.5,
+              "Conscientiousness": 0.7222222222222222,
+              "Neuroticism": 0.5,
+              "Openness": 0.5
+            },
+            "bands_argmax": {
+              "Extraversion": "H",
+              "Agreeableness": "L",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "L"
+            }
+          },
+          "16Personalities": {
+            "scores": {
+              "E/I": 51.761598566260474,
+              "S/N": 47.63180953579851,
+              "T/F": 52.831721453888655,
+              "P/J": 55.61949208689232
+            },
+            "norms": {
+              "E/I": 0.5176159856626047,
+              "S/N": 0.4763180953579851,
+              "T/F": 0.5283172145388866,
+              "P/J": 0.5561949208689232
+            },
+            "bands": {
+              "E/I": "H",
+              "S/N": "L",
+              "T/F": "H",
+              "P/J": "H"
+            },
+            "scores_argmax": {
+              "E/I": 58.97435897435897,
+              "S/N": 58.333333333333336,
+              "T/F": 54.166666666666664,
+              "P/J": 56.66666666666666
+            },
+            "norms_argmax": {
+              "E/I": 0.5897435897435898,
+              "S/N": 0.5833333333333334,
+              "T/F": 0.5416666666666666,
+              "P/J": 0.5666666666666665
+            },
+            "bands_argmax": {
+              "E/I": "H",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "H"
+            }
+          }
+        },
+        "C-M": {
+          "BFI": {
+            "scores": {
+              "Extraversion": 3.152214507572353,
+              "Agreeableness": 3.2700741019927793,
+              "Conscientiousness": 3.104613555388318,
+              "Neuroticism": 2.87840145919472,
+              "Openness": 3.222082471475005
+            },
+            "norms": {
+              "Extraversion": 0.5380536268930882,
+              "Agreeableness": 0.5675185254981948,
+              "Conscientiousness": 0.5261533888470795,
+              "Neuroticism": 0.46960036479867995,
+              "Openness": 0.5555206178687513
+            },
+            "bands": {
+              "Extraversion": "H",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "H"
+            },
+            "scores_argmax": {
+              "Extraversion": 3.5,
+              "Agreeableness": 2.7777777777777777,
+              "Conscientiousness": 3.2222222222222223,
+              "Neuroticism": 2.25,
+              "Openness": 3.2
+            },
+            "norms_argmax": {
+              "Extraversion": 0.625,
+              "Agreeableness": 0.4444444444444444,
+              "Conscientiousness": 0.5555555555555556,
+              "Neuroticism": 0.3125,
+              "Openness": 0.55
+            },
+            "bands_argmax": {
+              "Extraversion": "H",
+              "Agreeableness": "L",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "H"
+            }
+          },
+          "16Personalities": {
+            "scores": {
+              "E/I": 43.52907902107407,
+              "S/N": 52.96894586903767,
+              "T/F": 57.69056861191832,
+              "P/J": 52.696854131710204
+            },
+            "norms": {
+              "E/I": 0.4352907902107407,
+              "S/N": 0.5296894586903766,
+              "T/F": 0.5769056861191832,
+              "P/J": 0.526968541317102
+            },
+            "bands": {
+              "E/I": "L",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "H"
+            },
+            "scores_argmax": {
+              "E/I": 41.02564102564102,
+              "S/N": 58.333333333333336,
+              "T/F": 55.0,
+              "P/J": 57.77777777777778
+            },
+            "norms_argmax": {
+              "E/I": 0.41025641025641024,
+              "S/N": 0.5833333333333334,
+              "T/F": 0.55,
+              "P/J": 0.5777777777777778
+            },
+            "bands_argmax": {
+              "E/I": "L",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "H"
+            }
+          }
+        },
+        "S-S": {
+          "BFI": {
+            "scores": {
+              "Extraversion": 3.232131640892476,
+              "Agreeableness": 3.474284363910556,
+              "Conscientiousness": 3.1795550336440406,
+              "Neuroticism": 2.9393663068767637,
+              "Openness": 3.25918490588665
+            },
+            "norms": {
+              "Extraversion": 0.558032910223119,
+              "Agreeableness": 0.618571090977639,
+              "Conscientiousness": 0.5448887584110101,
+              "Neuroticism": 0.4848415767191909,
+              "Openness": 0.5647962264716625
+            },
+            "bands": {
+              "Extraversion": "H",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "H"
+            },
+            "scores_argmax": {
+              "Extraversion": 3.25,
+              "Agreeableness": 3.2222222222222223,
+              "Conscientiousness": 3.4444444444444446,
+              "Neuroticism": 3.0,
+              "Openness": 3.4
+            },
+            "norms_argmax": {
+              "Extraversion": 0.5625,
+              "Agreeableness": 0.5555555555555556,
+              "Conscientiousness": 0.6111111111111112,
+              "Neuroticism": 0.5,
+              "Openness": 0.6
+            },
+            "bands_argmax": {
+              "Extraversion": "H",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "H"
+            }
+          },
+          "16Personalities": {
+            "scores": {
+              "E/I": 49.6473700303632,
+              "S/N": 49.79703199480557,
+              "T/F": 50.407715361798175,
+              "P/J": 60.097917617402146
+            },
+            "norms": {
+              "E/I": 0.49647370030363197,
+              "S/N": 0.49797031994805574,
+              "T/F": 0.5040771536179818,
+              "P/J": 0.6009791761740214
+            },
+            "bands": {
+              "E/I": "L",
+              "S/N": "L",
+              "T/F": "H",
+              "P/J": "H"
+            },
+            "scores_argmax": {
+              "E/I": 51.28205128205128,
+              "S/N": 52.77777777777777,
+              "T/F": 58.33333333333333,
+              "P/J": 66.66666666666666
+            },
+            "norms_argmax": {
+              "E/I": 0.5128205128205128,
+              "S/N": 0.5277777777777777,
+              "T/F": 0.5833333333333333,
+              "P/J": 0.6666666666666665
+            },
+            "bands_argmax": {
+              "E/I": "H",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "H"
+            }
+          }
+        },
+        "S-E": {
+          "BFI": {
+            "scores": {
+              "Extraversion": 3.0847820462659,
+              "Agreeableness": 3.344396830019024,
+              "Conscientiousness": 3.185776813162698,
+              "Neuroticism": 2.8501295836176723,
+              "Openness": 3.3796139590442182
+            },
+            "norms": {
+              "Extraversion": 0.521195511566475,
+              "Agreeableness": 0.586099207504756,
+              "Conscientiousness": 0.5464442032906744,
+              "Neuroticism": 0.4625323959044181,
+              "Openness": 0.5949034897610546
+            },
+            "bands": {
+              "Extraversion": "H",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "H"
+            },
+            "scores_argmax": {
+              "Extraversion": 3.0,
+              "Agreeableness": 3.888888888888889,
+              "Conscientiousness": 3.6666666666666665,
+              "Neuroticism": 2.5,
+              "Openness": 4.4
+            },
+            "norms_argmax": {
+              "Extraversion": 0.5,
+              "Agreeableness": 0.7222222222222222,
+              "Conscientiousness": 0.6666666666666666,
+              "Neuroticism": 0.375,
+              "Openness": 0.8500000000000001
+            },
+            "bands_argmax": {
+              "Extraversion": "L",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "H"
+            }
+          },
+          "16Personalities": {
+            "scores": {
+              "E/I": 50.555859787915,
+              "S/N": 51.878993677544514,
+              "T/F": 58.50084259485205,
+              "P/J": 48.20820429621058
+            },
+            "norms": {
+              "E/I": 0.5055585978791499,
+              "S/N": 0.5187899367754452,
+              "T/F": 0.5850084259485205,
+              "P/J": 0.48208204296210583
+            },
+            "bands": {
+              "E/I": "H",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "L"
+            },
+            "scores_argmax": {
+              "E/I": 47.435897435897445,
+              "S/N": 58.333333333333336,
+              "T/F": 65.0,
+              "P/J": 48.88888888888889
+            },
+            "norms_argmax": {
+              "E/I": 0.47435897435897445,
+              "S/N": 0.5833333333333334,
+              "T/F": 0.65,
+              "P/J": 0.48888888888888893
+            },
+            "bands_argmax": {
+              "E/I": "L",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "L"
+            }
+          }
+        }
+      }
+    },
+    "wanderer-zh": {
+      "lang": "zh",
+      "n_mem": 128,
+      "strategies": {
+        "ordinary": {
+          "BFI": {
+            "scores": {
+              "Extraversion": 3.0170449670404196,
+              "Agreeableness": 3.1993693514830537,
+              "Conscientiousness": 3.1326964406503572,
+              "Neuroticism": 2.850711683742702,
+              "Openness": 2.956503105536103
+            },
+            "norms": {
+              "Extraversion": 0.5042612417601049,
+              "Agreeableness": 0.5498423378707634,
+              "Conscientiousness": 0.5331741101625893,
+              "Neuroticism": 0.4626779209356755,
+              "Openness": 0.48912577638402577
+            },
+            "bands": {
+              "Extraversion": "H",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "L"
+            },
+            "scores_argmax": {
+              "Extraversion": 3.0,
+              "Agreeableness": 3.2222222222222223,
+              "Conscientiousness": 3.888888888888889,
+              "Neuroticism": 2.25,
+              "Openness": 3.0
+            },
+            "norms_argmax": {
+              "Extraversion": 0.5,
+              "Agreeableness": 0.5555555555555556,
+              "Conscientiousness": 0.7222222222222222,
+              "Neuroticism": 0.3125,
+              "Openness": 0.5
+            },
+            "bands_argmax": {
+              "Extraversion": "L",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "L"
+            }
+          },
+          "16Personalities": {
+            "scores": {
+              "E/I": 47.89824829174158,
+              "S/N": 55.63999836837562,
+              "T/F": 58.08203914707216,
+              "P/J": 54.290780443698175
+            },
+            "norms": {
+              "E/I": 0.4789824829174158,
+              "S/N": 0.5563999836837562,
+              "T/F": 0.5808203914707216,
+              "P/J": 0.5429078044369817
+            },
+            "bands": {
+              "E/I": "L",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "H"
+            },
+            "scores_argmax": {
+              "E/I": 46.15384615384615,
+              "S/N": 51.388888888888886,
+              "T/F": 58.33333333333333,
+              "P/J": 60.0
+            },
+            "norms_argmax": {
+              "E/I": 0.4615384615384615,
+              "S/N": 0.5138888888888888,
+              "T/F": 0.5833333333333333,
+              "P/J": 0.6
+            },
+            "bands_argmax": {
+              "E/I": "L",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "H"
+            }
+          }
+        },
+        "C-A": {
+          "BFI": {
+            "scores": {
+              "Extraversion": 2.9407341540791094,
+              "Agreeableness": 3.1414916846487255,
+              "Conscientiousness": 3.00805567122168,
+              "Neuroticism": 3.1011703279800713,
+              "Openness": 2.714597880281508
+            },
+            "norms": {
+              "Extraversion": 0.48518353851977736,
+              "Agreeableness": 0.5353729211621814,
+              "Conscientiousness": 0.50201391780542,
+              "Neuroticism": 0.5252925819950178,
+              "Openness": 0.428649470070377
+            },
+            "bands": {
+              "Extraversion": "L",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "H",
+              "Openness": "L"
+            },
+            "scores_argmax": {
+              "Extraversion": 2.25,
+              "Agreeableness": 3.0,
+              "Conscientiousness": 3.0,
+              "Neuroticism": 3.0,
+              "Openness": 2.6
+            },
+            "norms_argmax": {
+              "Extraversion": 0.3125,
+              "Agreeableness": 0.5,
+              "Conscientiousness": 0.5,
+              "Neuroticism": 0.5,
+              "Openness": 0.4
+            },
+            "bands_argmax": {
+              "Extraversion": "L",
+              "Agreeableness": "L",
+              "Conscientiousness": "L",
+              "Neuroticism": "L",
+              "Openness": "L"
+            }
+          },
+          "16Personalities": {
+            "scores": {
+              "E/I": 48.95848877942907,
+              "S/N": 48.54584173170022,
+              "T/F": 55.06887798236373,
+              "P/J": 54.51146202472349
+            },
+            "norms": {
+              "E/I": 0.48958488779429066,
+              "S/N": 0.48545841731700223,
+              "T/F": 0.5506887798236373,
+              "P/J": 0.5451146202472349
+            },
+            "bands": {
+              "E/I": "L",
+              "S/N": "L",
+              "T/F": "H",
+              "P/J": "H"
+            },
+            "scores_argmax": {
+              "E/I": 52.56410256410257,
+              "S/N": 58.333333333333336,
+              "T/F": 61.666666666666664,
+              "P/J": 58.88888888888889
+            },
+            "norms_argmax": {
+              "E/I": 0.5256410256410257,
+              "S/N": 0.5833333333333334,
+              "T/F": 0.6166666666666667,
+              "P/J": 0.5888888888888889
+            },
+            "bands_argmax": {
+              "E/I": "H",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "H"
+            }
+          }
+        },
+        "C-M": {
+          "BFI": {
+            "scores": {
+              "Extraversion": 2.975052851717919,
+              "Agreeableness": 3.1013527007566557,
+              "Conscientiousness": 3.014172447224458,
+              "Neuroticism": 2.952819986268878,
+              "Openness": 2.949434408172965
+            },
+            "norms": {
+              "Extraversion": 0.4937632129294798,
+              "Agreeableness": 0.5253381751891639,
+              "Conscientiousness": 0.5035431118061146,
+              "Neuroticism": 0.4882049965672195,
+              "Openness": 0.4873586020432412
+            },
+            "bands": {
+              "Extraversion": "L",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "L"
+            },
+            "scores_argmax": {
+              "Extraversion": 3.0,
+              "Agreeableness": 3.888888888888889,
+              "Conscientiousness": 3.4444444444444446,
+              "Neuroticism": 2.75,
+              "Openness": 3.5
+            },
+            "norms_argmax": {
+              "Extraversion": 0.5,
+              "Agreeableness": 0.7222222222222222,
+              "Conscientiousness": 0.6111111111111112,
+              "Neuroticism": 0.4375,
+              "Openness": 0.625
+            },
+            "bands_argmax": {
+              "Extraversion": "L",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "H"
+            }
+          },
+          "16Personalities": {
+            "scores": {
+              "E/I": 45.985428233129475,
+              "S/N": 49.79559449808827,
+              "T/F": 55.63437220873311,
+              "P/J": 48.24785007422583
+            },
+            "norms": {
+              "E/I": 0.4598542823312948,
+              "S/N": 0.4979559449808827,
+              "T/F": 0.5563437220873311,
+              "P/J": 0.4824785007422583
+            },
+            "bands": {
+              "E/I": "L",
+              "S/N": "L",
+              "T/F": "H",
+              "P/J": "L"
+            },
+            "scores_argmax": {
+              "E/I": 46.153846153846146,
+              "S/N": 52.77777777777778,
+              "T/F": 61.666666666666664,
+              "P/J": 48.888888888888886
+            },
+            "norms_argmax": {
+              "E/I": 0.46153846153846145,
+              "S/N": 0.5277777777777778,
+              "T/F": 0.6166666666666667,
+              "P/J": 0.4888888888888889
+            },
+            "bands_argmax": {
+              "E/I": "L",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "L"
+            }
+          }
+        },
+        "S-S": {
+          "BFI": {
+            "scores": {
+              "Extraversion": 3.042942080181092,
+              "Agreeableness": 3.1515140877001815,
+              "Conscientiousness": 3.1180966119799347,
+              "Neuroticism": 2.8764450503513217,
+              "Openness": 2.711059333756566
+            },
+            "norms": {
+              "Extraversion": 0.510735520045273,
+              "Agreeableness": 0.5378785219250454,
+              "Conscientiousness": 0.5295241529949837,
+              "Neuroticism": 0.4691112625878304,
+              "Openness": 0.4277648334391415
+            },
+            "bands": {
+              "Extraversion": "H",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "L"
+            },
+            "scores_argmax": {
+              "Extraversion": 3.25,
+              "Agreeableness": 3.6666666666666665,
+              "Conscientiousness": 3.6666666666666665,
+              "Neuroticism": 2.5,
+              "Openness": 2.9
+            },
+            "norms_argmax": {
+              "Extraversion": 0.5625,
+              "Agreeableness": 0.6666666666666666,
+              "Conscientiousness": 0.6666666666666666,
+              "Neuroticism": 0.375,
+              "Openness": 0.475
+            },
+            "bands_argmax": {
+              "Extraversion": "H",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "L",
+              "Openness": "L"
+            }
+          },
+          "16Personalities": {
+            "scores": {
+              "E/I": 44.04456362558099,
+              "S/N": 51.15491656922839,
+              "T/F": 55.691799111664295,
+              "P/J": 50.09643877752954
+            },
+            "norms": {
+              "E/I": 0.4404456362558099,
+              "S/N": 0.5115491656922839,
+              "T/F": 0.556917991116643,
+              "P/J": 0.5009643877752954
+            },
+            "bands": {
+              "E/I": "L",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "H"
+            },
+            "scores_argmax": {
+              "E/I": 46.15384615384615,
+              "S/N": 58.333333333333336,
+              "T/F": 58.33333333333333,
+              "P/J": 53.333333333333336
+            },
+            "norms_argmax": {
+              "E/I": 0.4615384615384615,
+              "S/N": 0.5833333333333334,
+              "T/F": 0.5833333333333333,
+              "P/J": 0.5333333333333333
+            },
+            "bands_argmax": {
+              "E/I": "L",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "H"
+            }
+          }
+        },
+        "S-E": {
+          "BFI": {
+            "scores": {
+              "Extraversion": 2.9526358586736023,
+              "Agreeableness": 3.175740538785855,
+              "Conscientiousness": 3.1628098094628916,
+              "Neuroticism": 3.0962973383720964,
+              "Openness": 3.1565082509070637
+            },
+            "norms": {
+              "Extraversion": 0.4881589646684006,
+              "Agreeableness": 0.5439351346964637,
+              "Conscientiousness": 0.5407024523657229,
+              "Neuroticism": 0.5240743345930241,
+              "Openness": 0.5391270627267659
+            },
+            "bands": {
+              "Extraversion": "L",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "H",
+              "Openness": "H"
+            },
+            "scores_argmax": {
+              "Extraversion": 3.0,
+              "Agreeableness": 4.0,
+              "Conscientiousness": 3.6666666666666665,
+              "Neuroticism": 3.75,
+              "Openness": 3.9
+            },
+            "norms_argmax": {
+              "Extraversion": 0.5,
+              "Agreeableness": 0.75,
+              "Conscientiousness": 0.6666666666666666,
+              "Neuroticism": 0.6875,
+              "Openness": 0.725
+            },
+            "bands_argmax": {
+              "Extraversion": "L",
+              "Agreeableness": "H",
+              "Conscientiousness": "H",
+              "Neuroticism": "H",
+              "Openness": "H"
+            }
+          },
+          "16Personalities": {
+            "scores": {
+              "E/I": 47.11410987119262,
+              "S/N": 53.50926005436728,
+              "T/F": 57.92078906146344,
+              "P/J": 49.694132398193084
+            },
+            "norms": {
+              "E/I": 0.47114109871192617,
+              "S/N": 0.5350926005436728,
+              "T/F": 0.5792078906146344,
+              "P/J": 0.49694132398193086
+            },
+            "bands": {
+              "E/I": "L",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "L"
+            },
+            "scores_argmax": {
+              "E/I": 46.15384615384615,
+              "S/N": 52.77777777777777,
+              "T/F": 68.33333333333333,
+              "P/J": 44.44444444444444
+            },
+            "norms_argmax": {
+              "E/I": 0.4615384615384615,
+              "S/N": 0.5277777777777777,
+              "T/F": 0.6833333333333332,
+              "P/J": 0.4444444444444444
+            },
+            "bands_argmax": {
+              "E/I": "L",
+              "S/N": "H",
+              "T/F": "H",
+              "P/J": "L"
+            }
+          }
+        }
+      }
+    }
+  },
+  "metrics": {
+    "BFI|ordinary|exp": {
+      "acc_dim": 0.6296296296296297,
+      "acc_full": 0.3333333333333333,
+      "mse": 0.12276897769618772,
+      "mae": 0.33505510142702544,
+      "n_char": 6
+    },
+    "BFI|ordinary|argmax": {
+      "acc_dim": 0.6666666666666666,
+      "acc_full": 0.5,
+      "mse": 0.12570024934270688,
+      "mae": 0.3256430041152263,
+      "n_char": 6
+    },
+    "BFI|C-A|exp": {
+      "acc_dim": 0.7407407407407407,
+      "acc_full": 0.3333333333333333,
+      "mse": 0.12782890027310154,
+      "mae": 0.34024520384554013,
+      "n_char": 6
+    },
+    "BFI|C-A|argmax": {
+      "acc_dim": 0.48148148148148145,
+      "acc_full": 0.0,
+      "mse": 0.12717594378715133,
+      "mae": 0.32785493827160495,
+      "n_char": 6
+    },
+    "BFI|C-M|exp": {
+      "acc_dim": 0.5925925925925926,
+      "acc_full": 0.16666666666666666,
+      "mse": 0.12835015495513943,
+      "mae": 0.33813907501020435,
+      "n_char": 6
+    },
+    "BFI|C-M|argmax": {
+      "acc_dim": 0.5555555555555556,
+      "acc_full": 0.16666666666666666,
+      "mse": 0.14223586819844533,
+      "mae": 0.333179012345679,
+      "n_char": 6
+    },
+    "BFI|S-S|exp": {
+      "acc_dim": 0.6296296296296297,
+      "acc_full": 0.16666666666666666,
+      "mse": 0.13046083607205303,
+      "mae": 0.34412403734862695,
+      "n_char": 6
+    },
+    "BFI|S-S|argmax": {
+      "acc_dim": 0.6296296296296297,
+      "acc_full": 0.16666666666666666,
+      "mse": 0.13081832990397804,
+      "mae": 0.32458847736625507,
+      "n_char": 6
+    },
+    "BFI|S-E|exp": {
+      "acc_dim": 0.8148148148148148,
+      "acc_full": 0.5,
+      "mse": 0.1180083470835945,
+      "mae": 0.32324464710294215,
+      "n_char": 6
+    },
+    "BFI|S-E|argmax": {
+      "acc_dim": 0.8148148148148148,
+      "acc_full": 0.5,
+      "mse": 0.10551611796982166,
+      "mae": 0.2788065843621399,
+      "n_char": 6
+    },
+    "16Personalities|ordinary|exp": {
+      "acc_dim": 0.45454545454545453,
+      "acc_full": 0.0,
+      "mse": 0.13563169844335146,
+      "mae": 0.35188966827652884,
+      "n_char": 6
+    },
+    "16Personalities|ordinary|argmax": {
+      "acc_dim": 0.45454545454545453,
+      "acc_full": 0.0,
+      "mse": 0.13850957595348623,
+      "mae": 0.3433857808857809,
+      "n_char": 6
+    },
+    "16Personalities|C-A|exp": {
+      "acc_dim": 0.6818181818181818,
+      "acc_full": 0.3333333333333333,
+      "mse": 0.1347514251702738,
+      "mae": 0.3508759947163354,
+      "n_char": 6
+    },
+    "16Personalities|C-A|argmax": {
+      "acc_dim": 0.36363636363636365,
+      "acc_full": 0.0,
+      "mse": 0.15513920848856746,
+      "mae": 0.37165889665889673,
+      "n_char": 6
+    },
+    "16Personalities|C-M|exp": {
+      "acc_dim": 0.5,
+      "acc_full": 0.16666666666666666,
+      "mse": 0.14343515975745819,
+      "mae": 0.3606811766481474,
+      "n_char": 6
+    },
+    "16Personalities|C-M|argmax": {
+      "acc_dim": 0.5,
+      "acc_full": 0.16666666666666666,
+      "mse": 0.14677330504253583,
+      "mae": 0.3583527583527583,
+      "n_char": 6
+    },
+    "16Personalities|S-S|exp": {
+      "acc_dim": 0.5,
+      "acc_full": 0.0,
+      "mse": 0.13017611144846594,
+      "mae": 0.34418490658682993,
+      "n_char": 6
+    },
+    "16Personalities|S-S|argmax": {
+      "acc_dim": 0.5,
+      "acc_full": 0.3333333333333333,
+      "mse": 0.133495150386176,
+      "mae": 0.3388306138306138,
+      "n_char": 6
+    },
+    "16Personalities|S-E|exp": {
+      "acc_dim": 0.45454545454545453,
+      "acc_full": 0.0,
+      "mse": 0.13578090423404515,
+      "mae": 0.35504796397379973,
+      "n_char": 6
+    },
+    "16Personalities|S-E|argmax": {
+      "acc_dim": 0.5454545454545454,
+      "acc_full": 0.0,
+      "mse": 0.13823994589218952,
+      "mae": 0.35350621600621607,
+      "n_char": 6
+    }
+  },
+  "diagnostics": {
+    "raidenShogun-zh|BFI|ordinary": {
+      "mean_emotion_dist": 0.17023503153838895,
+      "n_items": 44,
+      "seconds": 9.0,
+      "answer_mean": 2.9647106884724717,
+      "answer_std": 0.654651639244823,
+      "argmax_hist": {
+        "1": 16,
+        "2": 0,
+        "3": 11,
+        "4": 0,
+        "5": 17
+      }
+    },
+    "raidenShogun-zh|BFI|C-A": {
+      "mean_emotion_dist": 0.08985641624101183,
+      "n_items": 44,
+      "seconds": 7.1,
+      "answer_mean": 3.030301780619828,
+      "answer_std": 0.662522711733082,
+      "argmax_hist": {
+        "1": 16,
+        "2": 0,
+        "3": 12,
+        "4": 1,
+        "5": 15
+      }
+    },
+    "raidenShogun-zh|BFI|C-M": {
+      "mean_emotion_dist": 0.07629488950425928,
+      "n_items": 44,
+      "seconds": 7.2,
+      "answer_mean": 3.115681999045509,
+      "answer_std": 0.6363544290653504,
+      "argmax_hist": {
+        "1": 14,
+        "2": 0,
+        "3": 12,
+        "4": 1,
+        "5": 17
+      }
+    },
+    "raidenShogun-zh|BFI|S-S": {
+      "mean_emotion_dist": 0.10867798937992616,
+      "n_items": 44,
+      "seconds": 7.9,
+      "answer_mean": 3.1017289258836005,
+      "answer_std": 0.5728656272035367,
+      "argmax_hist": {
+        "1": 12,
+        "2": 0,
+        "3": 12,
+        "4": 0,
+        "5": 20
+      }
+    },
+    "raidenShogun-zh|BFI|S-E": {
+      "mean_emotion_dist": 0.10254534528675405,
+      "n_items": 44,
+      "seconds": 7.5,
+      "answer_mean": 3.1103367626413028,
+      "answer_std": 0.5598763506653394,
+      "argmax_hist": {
+        "1": 14,
+        "2": 0,
+        "3": 11,
+        "4": 1,
+        "5": 18
+      }
+    },
+    "raidenShogun-zh|16Personalities|ordinary": {
+      "mean_emotion_dist": 0.15956608032186825,
+      "n_items": 60,
+      "seconds": 11.5,
+      "answer_mean": 2.393980496171086,
+      "answer_std": 1.0166112190503935,
+      "argmax_hist": {
+        "1": 50,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 10,
+        "6": 0,
+        "7": 0
+      }
+    },
+    "raidenShogun-zh|16Personalities|C-A": {
+      "mean_emotion_dist": 0.08830521128450831,
+      "n_items": 60,
+      "seconds": 11.7,
+      "answer_mean": 2.516519369489591,
+      "answer_std": 1.0628005845664465,
+      "argmax_hist": {
+        "1": 56,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3,
+        "6": 1,
+        "7": 0
+      }
+    },
+    "raidenShogun-zh|16Personalities|C-M": {
+      "mean_emotion_dist": 0.0759778084854285,
+      "n_items": 60,
+      "seconds": 10.6,
+      "answer_mean": 2.7096427341069407,
+      "answer_std": 1.0835063546666244,
+      "argmax_hist": {
+        "1": 50,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 9,
+        "6": 0,
+        "7": 1
+      }
+    },
+    "raidenShogun-zh|16Personalities|S-S": {
+      "mean_emotion_dist": 0.10354556733121474,
+      "n_items": 60,
+      "seconds": 11.8,
+      "answer_mean": 2.4690534569943945,
+      "answer_std": 1.0697312899628622,
+      "argmax_hist": {
+        "1": 52,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 8,
+        "6": 0,
+        "7": 0
+      }
+    },
+    "raidenShogun-zh|16Personalities|S-E": {
+      "mean_emotion_dist": 0.10067404738316933,
+      "n_items": 60,
+      "seconds": 11.5,
+      "answer_mean": 2.550047407714495,
+      "answer_std": 1.0495109876766562,
+      "argmax_hist": {
+        "1": 52,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 7,
+        "6": 1,
+        "7": 0
+      }
+    },
+    "zhongli-zh|BFI|ordinary": {
+      "mean_emotion_dist": 0.16401190886443312,
+      "n_items": 44,
+      "seconds": 8.3,
+      "answer_mean": 2.8359728373629465,
+      "answer_std": 0.48974831909767264,
+      "argmax_hist": {
+        "1": 18,
+        "2": 1,
+        "3": 15,
+        "4": 0,
+        "5": 10
+      }
+    },
+    "zhongli-zh|BFI|C-A": {
+      "mean_emotion_dist": 0.08767472808672623,
+      "n_items": 44,
+      "seconds": 7.9,
+      "answer_mean": 2.973806338850409,
+      "answer_std": 0.43079287991787824,
+      "argmax_hist": {
+        "1": 13,
+        "2": 0,
+        "3": 16,
+        "4": 1,
+        "5": 14
+      }
+    },
+    "zhongli-zh|BFI|C-M": {
+      "mean_emotion_dist": 0.07533840015953915,
+      "n_items": 44,
+      "seconds": 8.3,
+      "answer_mean": 2.922567123970525,
+      "answer_std": 0.5773995941853709,
+      "argmax_hist": {
+        "1": 17,
+        "2": 0,
+        "3": 14,
+        "4": 0,
+        "5": 13
+      }
+    },
+    "zhongli-zh|BFI|S-S": {
+      "mean_emotion_dist": 0.10067846939306367,
+      "n_items": 44,
+      "seconds": 8.3,
+      "answer_mean": 2.9529977773781866,
+      "answer_std": 0.5162523370392967,
+      "argmax_hist": {
+        "1": 11,
+        "2": 0,
+        "3": 23,
+        "4": 0,
+        "5": 10
+      }
+    },
+    "zhongli-zh|BFI|S-E": {
+      "mean_emotion_dist": 0.09978849898007783,
+      "n_items": 44,
+      "seconds": 8.9,
+      "answer_mean": 3.07803961486471,
+      "answer_std": 0.5074335080396772,
+      "argmax_hist": {
+        "1": 10,
+        "2": 0,
+        "3": 11,
+        "4": 0,
+        "5": 23
+      }
+    },
+    "zhongli-zh|16Personalities|ordinary": {
+      "mean_emotion_dist": 0.15508801384518545,
+      "n_items": 60,
+      "seconds": 9.6,
+      "answer_mean": 2.6183599439449607,
+      "answer_std": 0.9171355018015925,
+      "argmax_hist": {
+        "1": 54,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 4,
+        "6": 1,
+        "7": 1
+      }
+    },
+    "zhongli-zh|16Personalities|C-A": {
+      "mean_emotion_dist": 0.08867089649041494,
+      "n_items": 60,
+      "seconds": 10.0,
+      "answer_mean": 2.628364757844247,
+      "answer_std": 0.9491547935956747,
+      "argmax_hist": {
+        "1": 54,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 2,
+        "6": 2,
+        "7": 2
+      }
+    },
+    "zhongli-zh|16Personalities|C-M": {
+      "mean_emotion_dist": 0.07434578773876031,
+      "n_items": 60,
+      "seconds": 11.9,
+      "answer_mean": 2.4428852052524843,
+      "answer_std": 0.7656286427206581,
+      "argmax_hist": {
+        "1": 59,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 1,
+        "6": 0,
+        "7": 0
+      }
+    },
+    "zhongli-zh|16Personalities|S-S": {
+      "mean_emotion_dist": 0.09771034366761645,
+      "n_items": 60,
+      "seconds": 11.1,
+      "answer_mean": 2.612167126227481,
+      "answer_std": 0.9213704071535572,
+      "argmax_hist": {
+        "1": 56,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 2,
+        "6": 0,
+        "7": 2
+      }
+    },
+    "zhongli-zh|16Personalities|S-E": {
+      "mean_emotion_dist": 0.09795633073275288,
+      "n_items": 60,
+      "seconds": 11.2,
+      "answer_mean": 2.404366059558621,
+      "answer_std": 0.906398670476991,
+      "argmax_hist": {
+        "1": 57,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 2,
+        "6": 1,
+        "7": 0
+      }
+    },
+    "hutao-zh|BFI|ordinary": {
+      "mean_emotion_dist": 0.17009413564069706,
+      "n_items": 44,
+      "seconds": 8.3,
+      "answer_mean": 3.344861005602235,
+      "answer_std": 0.4921988423242677,
+      "argmax_hist": {
+        "1": 6,
+        "2": 0,
+        "3": 17,
+        "4": 2,
+        "5": 19
+      }
+    },
+    "hutao-zh|BFI|C-A": {
+      "mean_emotion_dist": 0.08957309970124201,
+      "n_items": 44,
+      "seconds": 8.3,
+      "answer_mean": 3.39489880758761,
+      "answer_std": 0.5158671229611475,
+      "argmax_hist": {
+        "1": 7,
+        "2": 0,
+        "3": 16,
+        "4": 4,
+        "5": 17
+      }
+    },
+    "hutao-zh|BFI|C-M": {
+      "mean_emotion_dist": 0.07612265477126295,
+      "n_items": 44,
+      "seconds": 9.3,
+      "answer_mean": 3.251397653377022,
+      "answer_std": 0.6369286600204137,
+      "argmax_hist": {
+        "1": 7,
+        "2": 0,
+        "3": 18,
+        "4": 2,
+        "5": 17
+      }
+    },
+    "hutao-zh|BFI|S-S": {
+      "mean_emotion_dist": 0.1038163107057864,
+      "n_items": 44,
+      "seconds": 8.8,
+      "answer_mean": 3.3373327835420654,
+      "answer_std": 0.4217225097449036,
+      "argmax_hist": {
+        "1": 3,
+        "2": 0,
+        "3": 21,
+        "4": 2,
+        "5": 18
+      }
+    },
+    "hutao-zh|BFI|S-E": {
+      "mean_emotion_dist": 0.10196370860053734,
+      "n_items": 44,
+      "seconds": 8.8,
+      "answer_mean": 3.44796757529151,
+      "answer_std": 0.4646627117569003,
+      "argmax_hist": {
+        "1": 3,
+        "2": 0,
+        "3": 17,
+        "4": 4,
+        "5": 20
+      }
+    },
+    "hutao-zh|16Personalities|ordinary": {
+      "mean_emotion_dist": 0.1598773746440808,
+      "n_items": 60,
+      "seconds": 11.9,
+      "answer_mean": 3.4418399503765005,
+      "answer_std": 1.2390136549689106,
+      "argmax_hist": {
+        "1": 33,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 25,
+        "6": 1,
+        "7": 1
+      }
+    },
+    "hutao-zh|16Personalities|C-A": {
+      "mean_emotion_dist": 0.08387856253733238,
+      "n_items": 60,
+      "seconds": 11.8,
+      "answer_mean": 3.1637153844853554,
+      "answer_std": 1.1499755856334013,
+      "argmax_hist": {
+        "1": 40,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 20,
+        "6": 0,
+        "7": 0
+      }
+    },
+    "hutao-zh|16Personalities|C-M": {
+      "mean_emotion_dist": 0.07050960588579376,
+      "n_items": 60,
+      "seconds": 12.1,
+      "answer_mean": 2.90501435030601,
+      "answer_std": 1.1425674529102647,
+      "argmax_hist": {
+        "1": 45,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 12,
+        "6": 0,
+        "7": 3
+      }
+    },
+    "hutao-zh|16Personalities|S-S": {
+      "mean_emotion_dist": 0.09494200634459654,
+      "n_items": 60,
+      "seconds": 12.1,
+      "answer_mean": 3.024459955794737,
+      "answer_std": 1.2601886331704673,
+      "argmax_hist": {
+        "1": 41,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 19,
+        "6": 0,
+        "7": 0
+      }
+    },
+    "hutao-zh|16Personalities|S-E": {
+      "mean_emotion_dist": 0.09586678842703501,
+      "n_items": 60,
+      "seconds": 12.5,
+      "answer_mean": 3.039344661241436,
+      "answer_std": 1.323973628629194,
+      "argmax_hist": {
+        "1": 40,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 17,
+        "6": 0,
+        "7": 3
+      }
+    },
+    "haruhi-zh|BFI|ordinary": {
+      "mean_emotion_dist": 0.1936880641362884,
+      "n_items": 44,
+      "seconds": 10.9,
+      "answer_mean": 2.9098487963730637,
+      "answer_std": 0.3209319760280966,
+      "argmax_hist": {
+        "1": 16,
+        "2": 0,
+        "3": 22,
+        "4": 0,
+        "5": 6
+      }
+    },
+    "haruhi-zh|BFI|C-A": {
+      "mean_emotion_dist": 0.12093607310883024,
+      "n_items": 44,
+      "seconds": 10.4,
+      "answer_mean": 2.8901578086343678,
+      "answer_std": 0.5989886618867873,
+      "argmax_hist": {
+        "1": 13,
+        "2": 0,
+        "3": 16,
+        "4": 0,
+        "5": 15
+      }
+    },
+    "haruhi-zh|BFI|C-M": {
+      "mean_emotion_dist": 0.10939930734986608,
+      "n_items": 44,
+      "seconds": 9.7,
+      "answer_mean": 2.9838069891557097,
+      "answer_std": 0.445794161976668,
+      "argmax_hist": {
+        "1": 14,
+        "2": 0,
+        "3": 15,
+        "4": 0,
+        "5": 15
+      }
+    },
+    "haruhi-zh|BFI|S-S": {
+      "mean_emotion_dist": 0.13926978934217582,
+      "n_items": 44,
+      "seconds": 11.0,
+      "answer_mean": 2.867470137605613,
+      "answer_std": 0.5263959763447604,
+      "argmax_hist": {
+        "1": 18,
+        "2": 0,
+        "3": 12,
+        "4": 0,
+        "5": 14
+      }
+    },
+    "haruhi-zh|BFI|S-E": {
+      "mean_emotion_dist": 0.1353139690208164,
+      "n_items": 44,
+      "seconds": 10.9,
+      "answer_mean": 2.9270567674274472,
+      "answer_std": 0.4397134973248608,
+      "argmax_hist": {
+        "1": 17,
+        "2": 0,
+        "3": 18,
+        "4": 0,
+        "5": 9
+      }
+    },
+    "haruhi-zh|16Personalities|ordinary": {
+      "mean_emotion_dist": 0.18035088889300824,
+      "n_items": 60,
+      "seconds": 14.8,
+      "answer_mean": 3.299679551413283,
+      "answer_std": 0.9605498741303465,
+      "argmax_hist": {
+        "1": 40,
+        "2": 0,
+        "3": 1,
+        "4": 0,
+        "5": 15,
+        "6": 3,
+        "7": 1
+      }
+    },
+    "haruhi-zh|16Personalities|C-A": {
+      "mean_emotion_dist": 0.11075307593370477,
+      "n_items": 60,
+      "seconds": 14.1,
+      "answer_mean": 2.8009512059545765,
+      "answer_std": 0.9209117471179408,
+      "argmax_hist": {
+        "1": 49,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 9,
+        "6": 1,
+        "7": 1
+      }
+    },
+    "haruhi-zh|16Personalities|C-M": {
+      "mean_emotion_dist": 0.0993646344790856,
+      "n_items": 60,
+      "seconds": 13.5,
+      "answer_mean": 2.6128587025760983,
+      "answer_std": 0.779728369654265,
+      "argmax_hist": {
+        "1": 57,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 1,
+        "6": 1,
+        "7": 1
+      }
+    },
+    "haruhi-zh|16Personalities|S-S": {
+      "mean_emotion_dist": 0.12727817377696435,
+      "n_items": 60,
+      "seconds": 14.6,
+      "answer_mean": 2.8561810329013193,
+      "answer_std": 0.9474344252714998,
+      "argmax_hist": {
+        "1": 51,
+        "2": 0,
+        "3": 1,
+        "4": 0,
+        "5": 6,
+        "6": 1,
+        "7": 1
+      }
+    },
+    "haruhi-zh|16Personalities|S-E": {
+      "mean_emotion_dist": 0.12492618306229512,
+      "n_items": 60,
+      "seconds": 14.0,
+      "answer_mean": 2.7999609144326922,
+      "answer_std": 0.910771296296586,
+      "argmax_hist": {
+        "1": 49,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 10,
+        "6": 1,
+        "7": 0
+      }
+    },
+    "ayaka-zh|BFI|ordinary": {
+      "mean_emotion_dist": 0.15290131318298253,
+      "n_items": 44,
+      "seconds": 8.5,
+      "answer_mean": 3.231210982278836,
+      "answer_std": 0.47461366751042067,
+      "argmax_hist": {
+        "1": 7,
+        "2": 1,
+        "3": 17,
+        "4": 0,
+        "5": 19
+      }
+    },
+    "ayaka-zh|BFI|C-A": {
+      "mean_emotion_dist": 0.08127080793069168,
+      "n_items": 44,
+      "seconds": 9.7,
+      "answer_mean": 3.1514310236723926,
+      "answer_std": 0.6120978509552217,
+      "argmax_hist": {
+        "1": 13,
+        "2": 0,
+        "3": 16,
+        "4": 0,
+        "5": 15
+      }
+    },
+    "ayaka-zh|BFI|C-M": {
+      "mean_emotion_dist": 0.06865799308500507,
+      "n_items": 44,
+      "seconds": 10.9,
+      "answer_mean": 3.056361360179091,
+      "answer_std": 0.6000120842020801,
+      "argmax_hist": {
+        "1": 15,
+        "2": 1,
+        "3": 11,
+        "4": 1,
+        "5": 16
+      }
+    },
+    "ayaka-zh|BFI|S-S": {
+      "mean_emotion_dist": 0.09422762429511006,
+      "n_items": 44,
+      "seconds": 9.4,
+      "answer_mean": 3.1392846049063583,
+      "answer_std": 0.5563363389451822,
+      "argmax_hist": {
+        "1": 9,
+        "2": 0,
+        "3": 18,
+        "4": 0,
+        "5": 17
+      }
+    },
+    "ayaka-zh|BFI|S-E": {
+      "mean_emotion_dist": 0.09194628623398868,
+      "n_items": 44,
+      "seconds": 9.2,
+      "answer_mean": 3.108945347241719,
+      "answer_std": 0.5807588267977728,
+      "argmax_hist": {
+        "1": 12,
+        "2": 0,
+        "3": 14,
+        "4": 0,
+        "5": 18
+      }
+    },
+    "ayaka-zh|16Personalities|ordinary": {
+      "mean_emotion_dist": 0.15280643018583456,
+      "n_items": 60,
+      "seconds": 11.3,
+      "answer_mean": 2.8728310133020085,
+      "answer_std": 1.0185703734730551,
+      "argmax_hist": {
+        "1": 44,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 15,
+        "6": 1,
+        "7": 0
+      }
+    },
+    "ayaka-zh|16Personalities|C-A": {
+      "mean_emotion_dist": 0.07738960248728594,
+      "n_items": 60,
+      "seconds": 13.4,
+      "answer_mean": 2.891719966137316,
+      "answer_std": 1.0543152531332647,
+      "argmax_hist": {
+        "1": 48,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 9,
+        "6": 2,
+        "7": 1
+      }
+    },
+    "ayaka-zh|16Personalities|C-M": {
+      "mean_emotion_dist": 0.0641308809009691,
+      "n_items": 60,
+      "seconds": 14.9,
+      "answer_mean": 2.543107758342133,
+      "answer_std": 0.8472936564759737,
+      "argmax_hist": {
+        "1": 55,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 5,
+        "6": 0,
+        "7": 0
+      }
+    },
+    "ayaka-zh|16Personalities|S-S": {
+      "mean_emotion_dist": 0.09166874798635642,
+      "n_items": 60,
+      "seconds": 13.5,
+      "answer_mean": 2.8692131492309274,
+      "answer_std": 0.9635134396337061,
+      "argmax_hist": {
+        "1": 49,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 11,
+        "6": 0,
+        "7": 0
+      }
+    },
+    "ayaka-zh|16Personalities|S-E": {
+      "mean_emotion_dist": 0.092812962581714,
+      "n_items": 60,
+      "seconds": 13.8,
+      "answer_mean": 2.70593062947349,
+      "answer_std": 0.897818196653324,
+      "argmax_hist": {
+        "1": 51,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 8,
+        "6": 1,
+        "7": 0
+      }
+    },
+    "wanderer-zh|BFI|ordinary": {
+      "mean_emotion_dist": 0.1679526437920603,
+      "n_items": 44,
+      "seconds": 7.4,
+      "answer_mean": 2.9912955075163734,
+      "answer_std": 0.4742000080202451,
+      "argmax_hist": {
+        "1": 15,
+        "2": 0,
+        "3": 12,
+        "4": 0,
+        "5": 17
+      }
+    },
+    "wanderer-zh|BFI|C-A": {
+      "mean_emotion_dist": 0.08843063901771199,
+      "n_items": 44,
+      "seconds": 8.7,
+      "answer_mean": 2.9306660618379037,
+      "answer_std": 0.4450704218899206,
+      "argmax_hist": {
+        "1": 14,
+        "2": 0,
+        "3": 19,
+        "4": 0,
+        "5": 11
+      }
+    },
+    "wanderer-zh|BFI|C-M": {
+      "mean_emotion_dist": 0.0766419063068249,
+      "n_items": 44,
+      "seconds": 8.8,
+      "answer_mean": 2.9230726549232546,
+      "answer_std": 0.4527845637348704,
+      "argmax_hist": {
+        "1": 14,
+        "2": 0,
+        "3": 18,
+        "4": 1,
+        "5": 11
+      }
+    },
+    "wanderer-zh|BFI|S-S": {
+      "mean_emotion_dist": 0.10035926446487958,
+      "n_items": 44,
+      "seconds": 8.8,
+      "answer_mean": 2.78743152201853,
+      "answer_std": 0.42558438336104354,
+      "argmax_hist": {
+        "1": 22,
+        "2": 1,
+        "3": 11,
+        "4": 0,
+        "5": 10
+      }
+    },
+    "wanderer-zh|BFI|S-E": {
+      "mean_emotion_dist": 0.10468660620972514,
+      "n_items": 44,
+      "seconds": 9.4,
+      "answer_mean": 2.9241122709671883,
+      "answer_std": 0.5379515061482066,
+      "argmax_hist": {
+        "1": 16,
+        "2": 2,
+        "3": 12,
+        "4": 0,
+        "5": 14
+      }
+    },
+    "wanderer-zh|16Personalities|ordinary": {
+      "mean_emotion_dist": 0.15890293264140684,
+      "n_items": 60,
+      "seconds": 11.2,
+      "answer_mean": 2.304003181386118,
+      "answer_std": 0.8713665008683507,
+      "argmax_hist": {
+        "1": 56,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 2,
+        "6": 1,
+        "7": 1
+      }
+    },
+    "wanderer-zh|16Personalities|C-A": {
+      "mean_emotion_dist": 0.08955125330636898,
+      "n_items": 60,
+      "seconds": 12.1,
+      "answer_mean": 2.489364240714349,
+      "answer_std": 0.8930870626262281,
+      "argmax_hist": {
+        "1": 57,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 1,
+        "6": 2,
+        "7": 0
+      }
+    },
+    "wanderer-zh|16Personalities|C-M": {
+      "mean_emotion_dist": 0.0771652076082925,
+      "n_items": 60,
+      "seconds": 12.1,
+      "answer_mean": 2.6105490777525118,
+      "answer_std": 1.0008359665108943,
+      "argmax_hist": {
+        "1": 53,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 7,
+        "6": 0,
+        "7": 0
+      }
+    },
+    "wanderer-zh|16Personalities|S-S": {
+      "mean_emotion_dist": 0.1025329856822888,
+      "n_items": 60,
+      "seconds": 12.8,
+      "answer_mean": 2.324607740932455,
+      "answer_std": 0.8560498235042769,
+      "argmax_hist": {
+        "1": 58,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 2,
+        "6": 0,
+        "7": 0
+      }
+    },
+    "wanderer-zh|16Personalities|S-E": {
+      "mean_emotion_dist": 0.10398678574711084,
+      "n_items": 60,
+      "seconds": 12.7,
+      "answer_mean": 2.4636812999572917,
+      "answer_std": 0.9471369877396476,
+      "argmax_hist": {
+        "1": 56,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 4,
+        "6": 0,
+        "7": 0
+      }
+    }
+  }
+}
