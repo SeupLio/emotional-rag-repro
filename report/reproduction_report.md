@@ -408,7 +408,7 @@ Plutchik 向量一致性（余弦 / 逐维 Pearson），用于判断**声学通�
 | 1 | 声学 SER 检查点 | IEMOCAP **4 类** HuBERT 套 RAVDESS 8 类，恒预测 `anger`，acc **0.174** | 换 RAVDESS **8 类** SER，acc **0.930**（同域） |
 | 2 | 分类头加载 | transformers 把 head 判为 MISSING 并**静默随机初始化**，输出实为噪声 | `_has_legacy_head()` 自动检测并重建 head；head 结构用真值**实测**选定 |
 | 3 | Plutchik 映射覆盖 | 仅覆盖 neu/hap/sad/ang 四类 | 补齐全部 8 类（含 calm/neutral/fearful/disgust/surprised） |
-| 4 | 仓库工程整洁度 | `scripts/` 21 个脚本（含 10 个冗余下载/探针） | 精简至 **11 个**，冗余移入 `scripts/_archive/`（本地保留、不发布） |
+| 4 | 仓库工程整洁度 | `scripts/` 21 个脚本（含 9 个冗余下载/探针） | 精简至 **12 个**，冗余移入 `scripts/_archive/`（本地保留、不发布） |
 | 5 | 评测可用性 | 固定 CPU + 固定检查点 | 新增 `--ser` / `--device`；v1 失败可一键复现 |
 | 6 | MM-2 跨通道一致性 | TTS 被沙箱 `Add-Type` 策略阻断，无法合成语音 | 改用 pyttsx3 + **逐条子进程超时**；已跑通（余弦 0.795/0.813，Pearson ≈ 0） |
 
